@@ -1386,12 +1386,122 @@
         "player": "Erling Haaland",
         "team": "Manchester City",
         "goals": 18
-      },
-      {
-        "player": "Harry Kane",
-        "team": "Tottenham",
+        },
+        {
+        "player": "Ollie Watkins",
+        "team": "Aston Villa",
         "goals": 16
-      }
+        },
+        {
+        "player": "Mohamed Salah",
+        "team": "Liverpool",
+        "goals": 16
+        },
+        {
+        "player": "Dominic Solanke",
+        "team": "AFC Bournemouth",
+        "goals": 16
+        },
+        {
+        "player": "Son Heung-min",
+        "team": "Tottenham Hotspur",
+        "goals": 15
+        },
+        {
+        "player": "Jarrod Bowen",
+        "team": "West Ham United",
+        "goals": 15
+        },
+        {
+        "player": "Alexander Isak",
+        "team": "Newcastle United",
+        "goals": 14
+        },
+        {
+        "player": "Cole Palmer",
+        "team": "Chelsea, Manchester City",
+        "goals": 13
+        },
+        {
+        "player": "Bukayo Saka",
+        "team": "Arsenal",
+        "goals": 13
+        },
+        {
+        "player": "Phil Foden",
+        "team": "Manchester City",
+        "goals": 11
+        },
+        {
+        "player": "Darwin Núñez",
+        "team": "Liverpool",
+        "goals": 10
+        },
+        {
+        "player": "Richarlison",
+        "team": "Tottenham Hotspur",
+        "goals": 10
+        },
+        {
+        "player": "Hwang Hee-chan",
+        "team": "Wolverhampton Wanderers",
+        "goals": 10
+        },
+        {
+        "player": "Chris Wood",
+        "team": "Nottingham Forest",
+        "goals": 10
+        },
+        {
+        "player": "Matheus Cunha",
+        "team": "Wolverhampton Wanderers",
+        "goals": 9
+        },
+        {
+        "player": "Anthony Gordon",
+        "team": "Newcastle United",
+        "goals": 9
+        },
+        {
+        "player": "Douglas Luiz",
+        "team": "Aston Villa",
+        "goals": 9
+        },
+        {
+        "player": "Diogo Jota",
+        "team": "Liverpool",
+        "goals": 9
+        },
+        {
+        "player": "Nicolas Jackson",
+        "team": "Chelsea",
+        "goals": 9
+        },
+        {
+        "player": "Elijah Adebayo",
+        "team": "Luton Town",
+        "goals": 9
+        },
+        {
+        "player": "Leon Bailey",
+        "team": "Aston Villa",
+        "goals": 8
+        },
+        {
+        "player": "Julián Álvarez",
+        "team": "Manchester City",
+        "goals": 8
+        },
+        {
+        "player": "Carlton Morris",
+        "team": "Luton Town",
+        "goals": 8
+        },
+        {
+        "player": "Kai Havertz",
+        "team": "Arsenal",
+        "goals": 8
+        }
     ]
   }
   
