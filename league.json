@@ -1,1 +1,57 @@
-
+{
+    "league": "Premier League",
+    "season": "2023-2024",
+    "teams": [
+      {
+        "name": "Arsenal",
+        "played": 28,
+        "won": 20,
+        "drawn": 4,
+        "lost": 4,
+        "goals_for": 60,
+        "goals_against": 25,
+        "goal_difference": 35,
+        "points": 64
+      },
+      {
+        "name": "Manchester City",
+        "played": 27,
+        "won": 19,
+        "drawn": 4,
+        "lost": 4,
+        "goals_for": 67,
+        "goals_against": 25,
+        "goal_difference": 42,
+        "points": 61
+      }
+    ],
+    "fixtures": [
+      {
+        "date": "2023-12-01",
+        "home_team": "Arsenal",
+        "away_team": "Manchester City",
+        "home_score": 2,
+        "away_score": 1
+      },
+      {
+        "date": "2024-01-15",
+        "home_team": "Manchester City",
+        "away_team": "Arsenal",
+        "home_score": 1,
+        "away_score": 1
+      }
+    ],
+    "top_scorers": [
+      {
+        "player": "Erling Haaland",
+        "team": "Manchester City",
+        "goals": 18
+      },
+      {
+        "player": "Harry Kane",
+        "team": "Tottenham",
+        "goals": 16
+      }
+    ]
+  }
+  
