@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Premier League Data",
+    "type": "object",
+    "required": ["league", "season", "teams", "fixtures", "top_scorers"],
+    "properties": {
+      "league": {
+        "type": "string"
+      },
+      "season": {
+        "type": "string"
+      },
+      "teams": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["name", "played", "won", "drawn", "lost", "goals_for", "goals_against", "goal_difference", "points"],
+          "properties": {
+            "name": {"type": "string"},
+            "played": {"type": "integer", "minimum": 0},
+            "won": {"type": "integer", "minimum": 0},
+            "drawn": {"type": "integer", "minimum": 0},
+            "lost": {"type": "integer", "minimum": 0},
+            "goals_for": {"type": "integer"},
+            "goals_against": {"type": "integer"},
+            "goal_difference": {"type": "integer"},
+            "points": {"type": "integer"}
+          }
+        }
+      },
+      "fixtures": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["date", "home_team", "away_team"],
+          "properties": {
+            "date": {"type": "string", "format": "date"},
+            "home_team": {"type": "string"},
+            "away_team": {"type": "string"},
+            "home_score": {"type": "integer", "minimum": 0},
+            "away_score": {"type": "integer", "minimum": 0},
+            "time": {"type": "string", "pattern": "^([0-1][0-9]|2[0-3]):[0-5][0-9]$"}
+          }
+        }
+      },
+      "top_scorers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["player", "team", "goals"],
+          "properties": {
+            "player": {"type": "string"},
+            "team": {"type": "string"},
+            "goals": {"type": "integer", "minimum": 0}
+          }
+        }
+      }
+    }
+  }
+  
