@@ -11,7 +11,7 @@ async function fetchData(url) {
 
 function updateLeagueTable(data) {
   const leagueTableBody = document.querySelector('#league-table');
-  if (leagueTableBody) {
+  if (leagueTableBody) { // Check if the league table exists
     leagueTableBody.innerHTML = '';
 
     data.teams.forEach(team => {
