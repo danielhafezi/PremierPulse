@@ -9,12 +9,30 @@ async function fetchData(url) {
   }
 }
 
+function getFormString(teamName, fixtures) {
+  const recentFixtures = fixtures
+    .filter(fixture => fixture.home_team === teamName || fixture.away_team === teamName)
+    .slice(-6); // Get the last 6 fixtures for the team
+
+  let formString = '';
+  recentFixtures.forEach(fixture => {
+    if (fixture.home_team === teamName) {
+      formString += fixture.home_score > fixture.away_score ? 'W' : 'L';
+    } else {
+      formString += fixture.away_score > fixture.home_score ? 'W' : 'L';
+    }
+  });
+
+  return formString;
+}
+
 function updateLeagueTable(data) {
   const leagueTableBody = document.querySelector('#league-table');
   if (leagueTableBody) { // Check if the league table exists
     leagueTableBody.innerHTML = '';
 
     data.teams.forEach(team => {
+      const formString = getFormString(team.name, data.fixtures);
       const row = document.createElement('tr');
       row.innerHTML = `
         <td>${team.name}</td>
@@ -26,6 +44,7 @@ function updateLeagueTable(data) {
         <td>${team.goals_against}</td>
         <td>${team.goal_difference}</td>
         <td>${team.points}</td>
+        <td class="form">${formString.split('').map(result => `<span class="${result}"></span>`).join('')}</td>
       `;
       leagueTableBody.appendChild(row);
     });

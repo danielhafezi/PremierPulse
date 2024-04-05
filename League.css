@@ -33,6 +33,26 @@ body {
     margin-top: 20px;
   }
   
+  .form {
+    text-align: center;
+  }
+  
+  .form span {
+    display: inline-block;
+    width: 10px; /* Adjust size as needed */
+    height: 10px;
+    margin: 2px; /* Adjust spacing as needed */
+    border-radius: 2px; /* Add a slight border radius */
+  }
+  
+  .form .W {
+    background: linear-gradient(to bottom right, green, darkgreen);
+  }
+  
+  .form .L {
+    background: linear-gradient(to bottom right, blue, darkblue);
+  }
+
   th, td {
     padding: 10px;
     text-align: left;
