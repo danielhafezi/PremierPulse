@@ -12,7 +12,7 @@ async function fetchData(url) {
 function getFormString(teamName, fixtures) {
   const recentFixtures = fixtures
     .filter(fixture => fixture.home_team === teamName || fixture.away_team === teamName)
-    .slice(-6); // Get the last 6 fixtures for the team
+    .slice(-6);
 
   let formString = '';
   recentFixtures.forEach(fixture => {
@@ -28,7 +28,7 @@ function getFormString(teamName, fixtures) {
 
 function updateLeagueTable(data) {
   const leagueTableBody = document.querySelector('#league-table');
-  if (leagueTableBody) { // Check if the league table exists
+  if (leagueTableBody) {
     leagueTableBody.innerHTML = '';
 
     data.teams.forEach(team => {
