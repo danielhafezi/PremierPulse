@@ -31,11 +31,16 @@ body {
     margin-top: 20px;
   }
   
+  #league-table td {
+    white-space: nowrap;
+  }
+  
   #league-table td:first-child {
     white-space: nowrap;
   }
 
 #league-table th,
+#league-table td:nth-child(1)
 #league-table td:nth-child(2),
 #league-table td:nth-child(3),
 #league-table td:nth-child(4),
@@ -43,6 +48,8 @@ body {
 #league-table td:nth-child(6),
 #league-table td:nth-child(7),
 #league-table td:nth-child(8),
+#league-table td:nth-child(10),
+#league-table td:nth-child(11),
 #league-table td:nth-child(9) {
   text-align: center; 
 }

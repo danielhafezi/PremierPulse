@@ -31,10 +31,11 @@ function updateLeagueTable(data) {
   if (leagueTableBody) {
     leagueTableBody.innerHTML = '';
 
-    data.teams.forEach(team => {
+    data.teams.forEach((team, index) => {
       const formString = getFormString(team.name, data.fixtures);
       const row = document.createElement('tr');
       row.innerHTML = `
+      <td>${index + 1}</td>
       <td>${team.name}</td>
       <td>${team.played}</td>
       <td>${team.won}</td>
