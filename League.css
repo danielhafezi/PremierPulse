@@ -37,8 +37,11 @@ body {
 
   #league-table td:first-child {
     white-space: nowrap;
+    text-align: center;
   }
-
+  #league-table th:last-child {
+    text-align: center;
+  }
 #league-table th,
 #league-table td:nth-child(1)
 #league-table td:nth-child(2),
@@ -54,9 +57,14 @@ body {
   text-align: center; 
 }
 
+.form-header {
+  text-align: center;
+}
+
   .form {
     text-align: center;
     display: flex;
+    justify-content: center;
   }
   
   .form span {
