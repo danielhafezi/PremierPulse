@@ -31,6 +31,10 @@ body {
     margin-top: 20px;
   }
   
+  #league-table td:first-child { /* Target the first column (team names) */
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+  
   .form {
     text-align: center;
     display: flex;
