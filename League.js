@@ -17,9 +17,9 @@ function getFormString(teamName, fixtures) {
   let formString = '';
   recentFixtures.forEach(fixture => {
     if (fixture.home_team === teamName) {
-      formString += fixture.home_score > fixture.away_score ? 'W' : 'L';
+      formString += fixture.home_score > fixture.away_score ? 'W' : (fixture.home_score < fixture.away_score ? 'L' : 'D');
     } else {
-      formString += fixture.away_score > fixture.home_score ? 'W' : 'L';
+      formString += fixture.away_score > fixture.home_score ? 'W' : (fixture.away_score < fixture.home_score ? 'L' : 'D');
     }
   });
 
@@ -35,16 +35,16 @@ function updateLeagueTable(data) {
       const formString = getFormString(team.name, data.fixtures);
       const row = document.createElement('tr');
       row.innerHTML = `
-        <td>${team.name}</td>
-        <td>${team.played}</td>
-        <td>${team.won}</td>
-        <td>${team.drawn}</td>
-        <td>${team.lost}</td>
-        <td>${team.goals_for}</td>
-        <td>${team.goals_against}</td>
-        <td>${team.goal_difference}</td>
-        <td>${team.points}</td>
-        <td class="form">${formString.split('').map(result => `<span class="${result}"></span>`).join('')}</td>
+      <td>${team.name}</td>
+      <td>${team.played}</td>
+      <td>${team.won}</td>
+      <td>${team.drawn}</td>
+      <td>${team.lost}</td>
+      <td>${team.goals_for}</td>
+      <td>${team.goals_against}</td>
+      <td>${team.goal_difference}</td>
+      <td>${team.points}</td>
+      <td class="form">${formString.split('').map(result => `<span class="${result}">${result}</span>`).join('')}</td> 
       `;
       leagueTableBody.appendChild(row);
     });
