@@ -6,8 +6,8 @@ body {
   }
   
   header {
-    background-color: #333;
-    color: #fff;
+    background-color: #FFD230;
+    color: #000000;
     padding: 20px;
     text-align: center;
   }
@@ -111,8 +111,8 @@ body {
   }
   
   footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #FFD230;
+    color: #000000;
     padding: 10px;
     text-align: center;
     font-size: 12px;
