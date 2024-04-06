@@ -23,8 +23,9 @@ nav {
   background-color: #000;
   margin: 0;
   padding: 5px;
+  padding-left: 15px;
   width: 100%;
-  margin-top: 5px
+  margin-top: 5px;
 }
 
 nav ul {
@@ -47,7 +48,6 @@ nav a {
 nav a.active {
   border-bottom: 6px solid #FFD230; /* the yellow underline */
   color: #fff; /* assuming you want white text */
-  padding-bottom: 2px; /* space above the border */
 }
 
 
