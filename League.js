@@ -80,4 +80,5 @@ async function updateData() {
 document.addEventListener('DOMContentLoaded', () => {
   updateData();
   setTimeout(updateData, 5 * 60 * 1000);
+
 });
