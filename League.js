@@ -76,9 +76,19 @@ async function updateData() {
     updateTopScorersTable(data);
   }
 }
-
+function setActiveLink() {
+  const currentPage = window.location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  setActiveLink();
+});
 document.addEventListener('DOMContentLoaded', () => {
   updateData();
   setTimeout(updateData, 5 * 60 * 1000);
-
 });
