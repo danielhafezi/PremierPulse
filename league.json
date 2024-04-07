@@ -410,91 +410,106 @@
         "date": "2024-04-03",
         "home_team": "Arsenal",
         "away_team": "Luton Town",
-        "time": "19:30"
+        "home_score": 2,
+        "away_score": 0
         },
         {
         "date": "2024-04-03",
         "home_team": "Brentford",
         "away_team": "Brighton & Hove Albion",
-        "time": "19:30"
+        "home_score": 0,
+        "away_score": 0
         },
         {
         "date": "2024-04-03",
         "home_team": "Manchester City",
         "away_team": "Aston Villa",
-        "time": "20:15"
+        "home_score": 4,
+        "away_score": 1
         },
         {
         "date": "2024-04-04",
         "home_team": "Liverpool",
         "away_team": "Sheffield United",
-        "time": "19:30"
+        "home_score": 3,
+        "away_score": 1
         },
         {
         "date": "2024-04-04",
         "home_team": "Chelsea",
         "away_team": "Manchester United",
-        "time": "20:15"
+        "home_score": 4,
+        "away_score": 3
         },
         {
         "date": "2024-04-06",
         "home_team": "Crystal Palace",
         "away_team": "Manchester City",
-        "time": "12:30"
+        "home_score": 2,
+        "away_score": 4
         },
         {
         "date": "2024-04-06",
         "home_team": "Aston Villa",
         "away_team": "Brentford",
-        "time": "15:00"
+        "home_score": 3,
+        "away_score": 3
         },
         {
         "date": "2024-04-06",
         "home_team": "Everton",
         "away_team": "Burnley",
-        "time": "15:00"
+        "home_score": 1,
+        "away_score": 0
         },
         {
         "date": "2024-04-06",
         "home_team": "Fulham",
         "away_team": "Newcastle United",
-        "time": "15:00"
+        "home_score": 1,
+        "away_score": 0
         },
         {
         "date": "2024-04-06",
         "home_team": "Luton Town",
         "away_team": "AFC Bournemouth",
-        "time": "15:00"
+        "home_score": 2,
+        "away_score": 1
         },
         {
         "date": "2024-04-06",
         "home_team": "Wolverhampton Wanderers",
         "away_team": "West Ham United",
-        "time": "15:00"
+        "home_score": 1,
+        "away_score": 2
         },
         {
         "date": "2024-04-06",
         "home_team": "Brighton & Hove Albion",
         "away_team": "Arsenal",
-        "time": "17:30"
+        "home_score": 0,
+        "away_score": 3
         },
         {
         "date": "2024-04-07",
         "home_team": "Manchester United",
         "away_team": "Liverpool",
-        "time": "15:30"
+        "home_score": 2,
+        "away_score": 2
         },
         {
         "date": "2024-04-07",
         "home_team": "Sheffield United",
         "away_team": "Chelsea",
-        "time": "17:30"
+        "home_score": 2,
+        "away_score": 2
         },
         {
         "date": "2024-04-07",
         "home_team": "Tottenham Hotspur",
         "away_team": "Nottingham Forest",
-        "time": "18:00"
+        "home_score": 3,
+        "away_score": 1
         },
         {
         "date": "2024-04-13",
