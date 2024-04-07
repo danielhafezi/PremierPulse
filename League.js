@@ -11,8 +11,9 @@ async function fetchData(url) {
 
 function getFormString(teamName, fixtures) {
   const recentFixtures = fixtures
-    .filter(fixture => fixture.home_team === teamName || fixture.away_team === teamName)
-    .slice(-6);
+    .filter(fixture => (fixture.home_team === teamName || fixture.away_team === teamName) && fixture.home_score !== undefined)
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 6);
 
   let formString = '';
   recentFixtures.forEach(fixture => {
@@ -25,6 +26,7 @@ function getFormString(teamName, fixtures) {
 
   return formString;
 }
+
 
 function updateLeagueTable(data) {
   const leagueTableBody = document.querySelector('#league-table');
