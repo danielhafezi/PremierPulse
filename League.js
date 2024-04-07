@@ -39,6 +39,7 @@ function updateLeagueTable(data) {
       row.innerHTML = `
       <td>${index + 1}</td>
       <td>${team.name}</td>
+      <td>${team.points}</td>
       <td>${team.played}</td>
       <td>${team.won}</td>
       <td>${team.drawn}</td>
@@ -46,7 +47,6 @@ function updateLeagueTable(data) {
       <td>${team.goals_for}</td>
       <td>${team.goals_against}</td>
       <td>${team.goal_difference}</td>
-      <td>${team.points}</td>
       <td class="form">${formString.split('').map(result => `<span class="${result}">${result}</span>`).join('')}</td> 
       `;
       leagueTableBody.appendChild(row);
@@ -92,5 +92,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 document.addEventListener('DOMContentLoaded', () => {
   updateData();
-  setTimeout(updateData, 5 * 60 * 1000);
+  setTimeout(updateData, 1 * 60 * 1000);
 });
