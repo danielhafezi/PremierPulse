@@ -62,7 +62,6 @@ nav a.active {
   table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
   }
   
   #league-table td {
@@ -156,5 +155,6 @@ nav a.active {
     padding: 10px;
     text-align: center;
     font-size: 12px;
+    margin-top: 30px;
   }
   
