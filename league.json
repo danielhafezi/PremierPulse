@@ -2,230 +2,228 @@
   "league": "Premier League",
   "season": "2023-2024",
   "teams": [
-  {
-  "name": "Liverpool",
-  "played": 29,
-  "won": 20,
-  "drawn": 7,
-  "lost": 2,
-  "goals_for": 67,
-  "goals_against": 27,
-  "goal_difference": 40,
-  "points": 67
-  },
-  {
-  "name": "Arsenal",
-  "played": 29,
-  "won": 20,
-  "drawn": 5,
-  "lost": 4,
-  "goals_for": 70,
-  "goals_against": 24,
-  "goal_difference": 46,
-  "points": 65
-  },
-  {
-  "name": "Manchester City",
-  "played": 29,
-  "won": 19,
-  "drawn": 7,
-  "lost": 3,
-  "goals_for": 63,
-  "goals_against": 28,
-  "goal_difference": 35,
-  "points": 64
-  },
-  {
-  "name": "Aston Villa",
-  "played": 30,
-  "won": 18,
-  "drawn": 5,
-  "lost": 7,
-  "goals_for": 62,
-  "goals_against": 42,
-  "goal_difference": 20,
-  "points": 59
-  },
-  {
-  "name": "Tottenham Hotspur",
-  "played": 29,
-  "won": 17,
-  "drawn": 5,
-  "lost": 7,
-  "goals_for": 61,
-  "goals_against": 43,
-  "goal_difference": 18,
-  "points": 56
-  },
-  {
-  "name": "Manchester United",
-  "played": 29,
-  "won": 15,
-  "drawn": 3,
-  "lost": 11,
-  "goals_for": 40,
-  "goals_against": 40,
-  "goal_difference": 0,
-  "points": 48
-  },
-  {
-  "name": "West Ham United",
-  "played": 30,
-  "won": 12,
-  "drawn": 8,
-  "lost": 10,
-  "goals_for": 49,
-  "goals_against": 54,
-  "goal_difference": -5,
-  "points": 44
-  },
-  {
-  "name": "Newcastle United",
-  "played": 29,
-  "won": 13,
-  "drawn": 4,
-  "lost": 12,
-  "goals_for": 63,
-  "goals_against": 51,
-  "goal_difference": 12,
-  "points": 43
-  },
-  {
-  "name": "Brighton & Hove Albion",
-  "played": 29,
-  "won": 11,
-  "drawn": 9,
-  "lost": 9,
-  "goals_for": 51,
-  "goals_against": 46,
-  "goal_difference": 5,
-  "points": 42
-  },
-  {
-  "name": "Wolverhampton Wanderers",
-  "played": 29,
-  "won": 12,
-  "drawn": 5,
-  "lost": 12,
-  "goals_for": 42,
-  "goals_against": 46,
-  "goal_difference": -4,
-  "points": 41
-  },
-  {
-  "name": "Chelsea",
-  "played": 28,
-  "won": 11,
-  "drawn": 7,
-  "lost": 10,
-  "goals_for": 49,
-  "goals_against": 47,
-  "goal_difference": 2,
-  "points": 40
-  },
-  {
-  "name": "Fulham",
-  "played": 30,
-  "won": 11,
-  "drawn": 6,
-  "lost": 13,
-  "goals_for": 46,
-  "goals_against": 47,
-  "goal_difference": -1,
-  "points": 39
-  
-  },
-  {
-  "name": "AFC Bournemouth",
-  "played": 29,
-  "won": 10,
-  "drawn": 8,
-  "lost": 11,
-  "goals_for": 43,
-  "goals_against": 53,
-  "goal_difference": -10,
-  "points": 38
-  },
-  {
-  "name": "Crystal Palace",
-  "played": 29,
-  "won": 7,
-  "drawn": 9,
-  "lost": 13,
-  "goals_for": 34,
-  "goals_against": 49,
-  "goal_difference": -15,
-  "points": 30
-  },
-  {
-  "name": "Brentford",
-  "played": 30,
-  "won": 7,
-  "drawn": 6,
-  "lost": 17,
-  "goals_for": 42,
-  "goals_against": 55,
-  "goal_difference": -13,
-  "points": 27
-  },
-  {
-  "name": "Everton",
-  "played": 29,
-  "won": 8,
-  "drawn": 7,
-  "lost": 14,
-  "goals_for": 30,
-  "goals_against": 41,
-  "goal_difference": -11,
-  "points": 25
-  },
-  {
-  "name": "Nottingham Forest",
-  "played": 30,
-  "won": 6,
-  "drawn": 8,
-  "lost": 16,
-  "goals_for": 36,
-  "goals_against": 52,
-  "goal_difference": -16,
-  "points": 22
-  },
-  {
-  "name": "Luton Town",
-  "played": 30,
-  "won": 5,
-  "drawn": 7,
-  "lost": 18,
-  "goals_for": 43,
-  "goals_against": 62,
-  "goal_difference": -19,
-  "points": 22
-  
-  },
-  {
-  "name": "Burnley",
-  "played": 30,
-  "won": 4,
-  "drawn": 6,
-  "lost": 20,
-  "goals_for": 31,
-  "goals_against": 65,
-  "goal_difference": -34,
-  "points": 18
-  },
-  {
-  "name": "Sheffield United",
-  "played": 29,
-  "won": 3,
-  "drawn": 6,
-  "lost": 20,
-  "goals_for": 27,
-  "goals_against": 77,
-  "goal_difference": -50,
-  "points": 15
-  }
-    ],
-    "fixtures": [
+    {
+      "name": "Arsenal",
+      "played": 31,
+      "won": 22,
+      "drawn": 5,
+      "lost": 4,
+      "goals_for": 75,
+      "goals_against": 24,
+      "goal_difference": 51,
+      "points": 71
+    },
+    {
+      "name": "Liverpool",
+      "played": 31,
+      "won": 21,
+      "drawn": 8,
+      "lost": 2,
+      "goals_for": 72,
+      "goals_against": 30,
+      "goal_difference": 42,
+      "points": 71
+    },
+    {
+      "name": "Manchester City",
+      "played": 31,
+      "won": 21,
+      "drawn": 7,
+      "lost": 3,
+      "goals_for": 71,
+      "goals_against": 31,
+      "goal_difference": 40,
+      "points": 70
+    },
+    {
+      "name": "Tottenham Hotspur",
+      "played": 31,
+      "won": 18,
+      "drawn": 6,
+      "lost": 7,
+      "goals_for": 65,
+      "goals_against": 45,
+      "goal_difference": 20,
+      "points": 60
+    },
+    {
+      "name": "Aston Villa",
+      "played": 32,
+      "won": 16,
+      "drawn": 8,
+      "lost": 8,
+      "goals_for": 66,
+      "goals_against": 49,
+      "goal_difference": 17,
+      "points": 60
+    },
+    {
+      "name": "Manchester United",
+      "played": 31,
+      "won": 15,
+      "drawn": 4,
+      "lost": 12,
+      "goals_for": 45,
+      "goals_against": 46,
+      "goal_difference": -1,
+      "points": 49
+    },
+    {
+      "name": "West Ham United",
+      "played": 32,
+      "won": 13,
+      "drawn": 9,
+      "lost": 10,
+      "goals_for": 52,
+      "goals_against": 56,
+      "goal_difference": -4,
+      "points": 48
+    },
+    {
+      "name": "Newcastle United",
+      "played": 31,
+      "won": 14,
+      "drawn": 5,
+      "lost": 12,
+      "goals_for": 65,
+      "goals_against": 52,
+      "goal_difference": 13,
+      "points": 47
+    },
+    {
+      "name": "Chelsea",
+      "played": 30,
+      "won": 12,
+      "drawn": 8,
+      "lost": 10,
+      "goals_for": 55,
+      "goals_against": 52,
+      "goal_difference": 3,
+      "points": 44
+    },
+    {
+      "name": "Brighton & Hove Albion",
+      "played": 31,
+      "won": 11,
+      "drawn": 10,
+      "lost": 10,
+      "goals_for": 51,
+      "goals_against": 49,
+      "goal_difference": 2,
+      "points": 43
+    },
+    {
+      "name": "Wolverhampton Wanderers",
+      "played": 31,
+      "won": 12,
+      "drawn": 6,
+      "lost": 13,
+      "goals_for": 44,
+      "goals_against": 49,
+      "goal_difference": -5,
+      "points": 42
+    },
+    {
+      "name": "AFC Bournemouth",
+      "played": 31,
+      "won": 11,
+      "drawn": 8,
+      "lost": 12,
+      "goals_for": 45,
+      "goals_against": 55,
+      "goal_difference": -10,
+      "points": 41
+    },
+    {
+      "name": "Fulham",
+      "played": 32,
+      "won": 11,
+      "drawn": 6,
+      "lost": 15,
+      "goals_for": 47,
+      "goals_against": 51,
+      "goal_difference": -4,
+      "points": 39
+    },
+    {
+      "name": "Crystal Palace",
+      "played": 31,
+      "won": 7,
+      "drawn": 9,
+      "lost": 15,
+      "goals_for": 36,
+      "goals_against": 54,
+      "goal_difference": -18,
+      "points": 30
+    },
+    {
+      "name": "Everton",
+      "played": 31,
+      "won": 9,
+      "drawn": 8,
+      "lost": 14,
+      "goals_for": 32,
+      "goals_against": 42,
+      "goal_difference": -10,
+      "points": 29
+    },
+    {
+      "name": "Brentford",
+      "played": 32,
+      "won": 7,
+      "drawn": 8,
+      "lost": 17,
+      "goals_for": 45,
+      "goals_against": 56,
+      "goal_difference": -11,
+      "points": 29
+    },
+    {
+      "name": "Nottingham Forest",
+      "played": 32,
+      "won": 6,
+      "drawn": 7,
+      "lost": 19,
+      "goals_for": 45,
+      "goals_against": 65,
+      "goal_difference": -20,
+      "points": 25
+    },
+    {
+      "name": "Luton Town",
+      "played": 32,
+      "won": 6,
+      "drawn": 7,
+      "lost": 19,
+      "goals_for": 45,
+      "goals_against": 65,
+      "goal_difference": -20,
+      "points": 25
+    },
+    {
+      "name": "Burnley",
+      "played": 32,
+      "won": 4,
+      "drawn": 7,
+      "lost": 21,
+      "goals_for": 32,
+      "goals_against": 67,
+      "goal_difference": -35,
+      "points": 19
+    },
+    {
+      "name": "Sheffield United",
+      "played": 31,
+      "won": 3,
+      "drawn": 7,
+      "lost": 21,
+      "goals_for": 30,
+      "goals_against": 82,
+      "goal_difference": -52,
+      "points": 16
+    }
+  ],
+    "fixtures":[
       {
         "date": "2024-05-04",
         "home_team": "Arsenal",
@@ -406,96 +404,152 @@
           "away_team": "Tottenham Hotspur",
           "time": "16:00"
           },
-      {
-        "date": "2024-04-03",
-        "home_team": "Arsenal",
-        "away_team": "Luton Town",
-        "time": "19:30"
-        },
-        {
-        "date": "2024-04-03",
-        "home_team": "Brentford",
-        "away_team": "Brighton & Hove Albion",
-        "time": "19:30"
-        },
-        {
-        "date": "2024-04-03",
-        "home_team": "Manchester City",
-        "away_team": "Aston Villa",
-        "time": "20:15"
-        },
-        {
-        "date": "2024-04-04",
-        "home_team": "Liverpool",
-        "away_team": "Sheffield United",
-        "time": "19:30"
-        },
-        {
-        "date": "2024-04-04",
-        "home_team": "Chelsea",
-        "away_team": "Manchester United",
-        "time": "20:15"
-        },
-        {
-        "date": "2024-04-06",
-        "home_team": "Crystal Palace",
-        "away_team": "Manchester City",
-        "time": "12:30"
-        },
-        {
-        "date": "2024-04-06",
-        "home_team": "Aston Villa",
-        "away_team": "Brentford",
-        "time": "15:00"
-        },
-        {
-        "date": "2024-04-06",
-        "home_team": "Everton",
-        "away_team": "Burnley",
-        "time": "15:00"
-        },
-        {
-        "date": "2024-04-06",
-        "home_team": "Fulham",
-        "away_team": "Newcastle United",
-        "time": "15:00"
-        },
-        {
-        "date": "2024-04-06",
-        "home_team": "Luton Town",
-        "away_team": "AFC Bournemouth",
-        "time": "15:00"
-        },
-        {
-        "date": "2024-04-06",
-        "home_team": "Wolverhampton Wanderers",
-        "away_team": "West Ham United",
-        "time": "15:00"
-        },
-        {
-        "date": "2024-04-06",
-        "home_team": "Brighton & Hove Albion",
-        "away_team": "Arsenal",
-        "time": "17:30"
-        },
-        {
-        "date": "2024-04-07",
-        "home_team": "Manchester United",
-        "away_team": "Liverpool",
-        "time": "15:30"
-        },
-        {
-        "date": "2024-04-07",
-        "home_team": "Sheffield United",
-        "away_team": "Chelsea",
-        "time": "17:30"
-        },
-        {
-        "date": "2024-04-07",
-        "home_team": "Tottenham Hotspur",
-        "away_team": "Nottingham Forest",
-        "time": "18:00"
-        },
+            {
+                "date": "2024-03-02",
+                "home_team": "Luton Town",
+                "away_team": "Aston Villa",
+                "home_score": 2,
+                "away_score": 3
+            },
+            {
+                "date": "2024-04-02",
+                "home_team": "Newcastle United",
+                "away_team": "Everton",
+                "home_score": 1,
+                "away_score": 1
+            },
+            {
+                "date": "2024-04-02",
+                "home_team": "Nottingham Forest",
+                "away_team": "Fulham",
+                "home_score": 3,
+                "away_score": 1
+            },
+            {
+                "date": "2024-04-02",
+                "home_team": "AFC Bournemouth",
+                "away_team": "Crystal Palace",
+                "home_score": 1,
+                "away_score": 0
+            },
+            {
+                "date": "2024-04-02",
+                "home_team": "Burnley",
+                "away_team": "Wolverhampton Wanderers",
+                "home_score": 1,
+                "away_score": 1
+            },
+            {
+                "date": "2024-04-02",
+                "home_team": "West Ham United",
+                "away_team": "Tottenham Hotspur",
+                "home_score": 1,
+                "away_score": 0
+            },
+            {
+                "date": "2024-04-03",
+                "home_team": "Arsenal",
+                "away_team": "Luton Town",
+                "home_score": 2,
+                "away_score": 0
+            },
+            {
+                "date": "2024-04-03",
+                "home_team": "Brentford",
+                "away_team": "Brighton & Hove Albion",
+                "home_score": 0,
+                "away_score": 0
+            },
+            {
+                "date": "2024-04-03",
+                "home_team": "Manchester City",
+                "away_team": "Aston Villa",
+                "home_score": 4,
+                "away_score": 1
+            },
+            {
+                "date": "2024-04-04",
+                "home_team": "Liverpool",
+                "away_team": "Sheffield United",
+                "home_score": 3,
+                "away_score": 1
+            },
+            {
+                "date": "2024-04-04",
+                "home_team": "Chelsea",
+                "away_team": "Manchester United",
+                "home_score": 4,
+                "away_score": 3
+            },
+            {
+                "date": "2024-04-06",
+                "home_team": "Crystal Palace",
+                "away_team": "Manchester City",
+                "home_score": 2,
+                "away_score": 4
+            },
+            {
+                "date": "2024-04-06",
+                "home_team": "Aston Villa",
+                "away_team": "Brentford",
+                "home_score": 3,
+                "away_score": 3
+            },
+            {
+                "date": "2024-04-06",
+                "home_team": "Everton",
+                "away_team": "Burnley",
+                "home_score": 1,
+                "away_score": 0
+            },
+            {
+                "date": "2024-04-06",
+                "home_team": "Fulham",
+                "away_team": "Newcastle United",
+                "home_score": 0,
+                "away_score": 1
+            },
+            {
+                "date": "2024-04-06",
+                "home_team": "Luton Town",
+                "away_team": "AFC Bournemouth",
+                "home_score": 2,
+                "away_score": 1
+            },
+            {
+                "date": "2024-04-06",
+                "home_team": "Wolverhampton Wanderers",
+                "away_team": "West Ham United",
+                "home_score": 1,
+                "away_score": 2
+            },
+            {
+                "date": "2024-04-06",
+                "home_team": "Brighton & Hove Albion",
+                "away_team": "Arsenal",
+                "home_score": 0,
+                "away_score": 3
+            },    {
+              "date": "2024-04-07",
+              "home_team": "Manchester United",
+              "away_team": "Liverpool",
+              "home_score": 2,
+              "away_score": 2
+          },
+          {
+              "date": "2024-04-07",
+              "home_team": "Sheffield United",
+              "away_team": "Chelsea",
+              "home_score": 2,
+              "away_score": 2
+          },
+          {
+              "date": "2024-04-07",
+              "home_team": "Tottenham Hotspur",
+              "away_team": "Nottingham Forest",
+              "home_score": 3,
+              "away_score": 1
+          },
         {
         "date": "2024-04-13",
         "home_team": "Newcastle United",
