@@ -155,8 +155,16 @@ function determineTeam(playerName, fixtures) {
   return 'Unknown';
 }
 
+function updateData() {
+  fetchData('League.json').then(data => {
+      if (data) {
+          updateLeagueTable(data);
+          updateTopScorersTable(data);
+      }
+      setTimeout(updateData, 5000); // Schedule the next update after 5 seconds
+  });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-  updateData();
-  setInterval(updateData, 1 * 60 * 1000);
+  updateData(); // Initial call to start the sequence
 });
