@@ -76,6 +76,38 @@ function calculateLeagueStatistics(fixtures) {
   })).sort((a, b) => b.points - a.points || b.goal_difference - a.goal_difference || b.goals_for - a.goals_for);
 }
 
+function calculateTopScorers(fixtures) {
+  let scorersMap = {};
+
+  fixtures.forEach(fixture => {
+      const collectScores = [...(fixture.home_scorers || []), ...(fixture.away_scorers || [])];
+
+      collectScores.forEach(scorer => {
+          const [name, goals] = scorer.includes('(')
+              ? [scorer.slice(0, scorer.indexOf(' (')).trim(), parseInt(scorer.slice(scorer.indexOf('(') + 1, scorer.indexOf(')'), 10))]
+              : [scorer.trim(), 1];
+
+          scorersMap[name] = (scorersMap[name] || 0) + goals;
+      });
+  });
+
+  return Object.entries(scorersMap).sort((a, b) => b[1] - a[1]).map(scorer => ({
+      name: scorer[0],
+      goals: scorer[1],
+      team: determineTeam(scorer[0], fixtures) // Use the existing determineTeam logic
+  }));
+}
+function updateTopScorersTable(data) {
+  const topScorersTableBody = document.getElementById('top-scorers-table');
+  if (topScorersTableBody) {
+      const topScorers = calculateTopScorers(data.fixtures);
+      topScorersTableBody.innerHTML = ''; // clear existing entries
+      topScorers.forEach(scorer => {
+          const row = `<tr><td>${scorer.name}</td><td>${scorer.team}</td><td>${scorer.goals}</td></tr>`;
+          topScorersTableBody.innerHTML += row;
+      });
+  }
+}
 
 function updateLeagueTable(data) {
   const leagueTableBody = document.querySelector('#league-table');
@@ -107,9 +139,22 @@ function updateData() {
   fetchData('League.json').then(data => {
     if (data) {
       updateLeagueTable(data);
+      updateTopScorersTable(data);
     }
   });
 }
+function determineTeam(playerName, fixtures) {
+  for (let fixture of fixtures) {
+      if (fixture.home_scorers && fixture.home_scorers.includes(playerName)) {
+          return fixture.home_team;
+      }
+      if (fixture.away_scorers && fixture.away_scorers.includes(playerName)) {
+          return fixture.away_team;
+      }
+  }
+  return 'Unknown';
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   updateData();
