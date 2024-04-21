@@ -27,70 +27,91 @@ function getFormString(teamName, fixtures) {
   return formString;
 }
 
+function calculateLeagueStatistics(fixtures) {
+  const standings = {};
+  fixtures.forEach(fixture => {
+    const { home_team, away_team, home_score, away_score } = fixture;
+
+    // Initialize team in standings if not already present
+    if (!standings[home_team]) {
+      standings[home_team] = { played: 0, won: 0, drawn: 0, lost: 0, goals_for: 0, goals_against: 0, points: 0 };
+    }
+    if (!standings[away_team]) {
+      standings[away_team] = { played: 0, won: 0, drawn: 0, lost: 0, goals_for: 0, goals_against: 0, points: 0 };
+    }
+
+    // Update played games
+    standings[home_team].played++;
+    standings[away_team].played++;
+
+    // Updating goals for and against
+    if (home_score !== undefined && away_score !== undefined) {
+      standings[home_team].goals_for += home_score;
+      standings[away_team].goals_for += away_score;
+      standings[home_team].goals_against += away_score;
+      standings[away_team].goals_against += home_score;
+    }
+
+    // Determine win, draw, or loss and assign points
+    if (home_score > away_score) { // Home team wins
+      standings[home_team].won++;
+      standings[away_team].lost++;
+      standings[home_team].points += 3;
+    } else if (home_score < away_score) { // Away team wins
+      standings[away_team].won++;
+      standings[home_team].lost++;
+      standings[away_team].points += 3;
+    } else if (home_score === away_score) { // Draw
+      standings[home_team].drawn++;
+      standings[away_team].drawn++;
+      standings[home_team].points += 1;
+      standings[away_team].points += 1;
+    }
+  });
+
+  return Object.entries(standings).map(([name, stats]) => ({
+    name,
+    ...stats,
+    goal_difference: stats.goals_for - stats.goals_against
+  })).sort((a, b) => b.points - a.points || b.goal_difference - a.goal_difference || b.goals_for - a.goals_for);
+}
+
 
 function updateLeagueTable(data) {
   const leagueTableBody = document.querySelector('#league-table');
   if (leagueTableBody) {
     leagueTableBody.innerHTML = '';
-
-    data.teams.forEach((team, index) => {
+    const leagueData = calculateLeagueStatistics(data.fixtures);
+    leagueData.forEach((team, index) => {
       const formString = getFormString(team.name, data.fixtures);
       const row = document.createElement('tr');
       row.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${team.name}</td>
-      <td>${team.points}</td>
-      <td>${team.played}</td>
-      <td>${team.won}</td>
-      <td>${team.drawn}</td>
-      <td>${team.lost}</td>
-      <td>${team.goals_for}</td>
-      <td>${team.goals_against}</td>
-      <td>${team.goal_difference}</td>
-      <td class="form">${formString.split('').map(result => `<span class="${result}">${result}</span>`).join('')}</td> 
+        <td>${index + 1}</td>
+        <td>${team.name}</td>
+        <td>${team.points}</td>
+        <td>${team.played}</td>
+        <td>${team.won}</td>
+        <td>${team.drawn}</td>
+        <td>${team.lost}</td>
+        <td>${team.goals_for}</td>
+        <td>${team.goals_against}</td>
+        <td>${team.goal_difference}</td>
+        <td class="form">${formString.split('').map(result => `<span class="${result}">${result}</span>`).join('')}</td> 
       `;
       leagueTableBody.appendChild(row);
     });
   }
 }
 
-function updateTopScorersTable(data) {
-  const topScorersTableBody = document.querySelector('#top-scorers-table');
-  if (topScorersTableBody) {
-    topScorersTableBody.innerHTML = '';
-
-    data.top_scorers.forEach(scorer => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${scorer.player}</td>
-        <td>${scorer.team}</td>
-        <td>${scorer.goals}</td>
-      `;
-      topScorersTableBody.appendChild(row);
-    });
-  }
-}
-
-async function updateData() {
-  const data = await fetchData('League.json');
-  if (data) {
-    updateLeagueTable(data);
-    updateTopScorersTable(data);
-  }
-}
-function setActiveLink() {
-  const currentPage = window.location.pathname.split("/").pop();
-  const navLinks = document.querySelectorAll('nav a');
-  navLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('active');
+function updateData() {
+  fetchData('League.json').then(data => {
+    if (data) {
+      updateLeagueTable(data);
     }
   });
 }
-document.addEventListener('DOMContentLoaded', () => {
-  setActiveLink();
-});
+
 document.addEventListener('DOMContentLoaded', () => {
   updateData();
-  setTimeout(updateData, 1 * 60 * 1000);
+  setInterval(updateData, 1 * 60 * 1000);
 });
