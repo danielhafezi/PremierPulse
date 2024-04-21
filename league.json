@@ -804,7 +804,7 @@
         "home_team": "Manchester City",
         "away_team": "Arsenal",
         "home_score": 0,
-        "away_score": 0
+        "away_score": 0,
         "home_scorers": [], 
         "away_scorers": [] 
       },
