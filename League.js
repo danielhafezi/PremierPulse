@@ -80,35 +80,43 @@ function calculateTopScorers(fixtures) {
   let scorersMap = {};
 
   fixtures.forEach(fixture => {
-      const collectScores = [...(fixture.home_scorers || []), ...(fixture.away_scorers || [])];
+    const collectScores = [...(fixture.home_scorers || []), ...(fixture.away_scorers || [])];
 
-      collectScores.forEach(scorer => {
-          const [name, goals] = scorer.includes('(')
-              ? [scorer.slice(0, scorer.indexOf(' (')).trim(), parseInt(scorer.slice(scorer.indexOf('(') + 1, scorer.indexOf(')'), 10))]
-              : [scorer.trim(), 1];
+    collectScores.forEach(scorer => {
+      const [name, goals] = scorer.includes('(')
+        ? [scorer.slice(0, scorer.indexOf(' (')).trim(), parseInt(scorer.slice(scorer.indexOf('(') + 1, scorer.indexOf(')'), 10))]
+        : [scorer.trim(), 1];
 
-          scorersMap[name] = (scorersMap[name] || 0) + goals;
-      });
+      scorersMap[name] = (scorersMap[name] || 0) + goals;
+    });
   });
 
-  return Object.entries(scorersMap)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 20) 
-      .map(scorer => ({
-          name: scorer[0],
-          goals: scorer[1],
-          team: determineTeam(scorer[0], fixtures)
-      }));
+  let sortedScorers = Object.entries(scorersMap)
+    .sort((a, b) => b[1] - a[1]); // Sort based on goals
+
+  // Add rank and handle ties
+  let currentRank = 1;
+  let previousGoals = null;
+  const rankedScorers = sortedScorers.map(([name, goals]) => {
+    if (goals !== previousGoals) {
+      previousGoals = goals; // Update previousGoals first
+      currentRank++;          // Then increment rank
+    }
+    return { name, goals, team: determineTeam(name, fixtures), rank: currentRank };
+  });
+
+  return rankedScorers.slice(0, 20); // Return top 20
 }
+
 function updateTopScorersTable(data) {
   const topScorersTableBody = document.getElementById('top-scorers-table');
   if (topScorersTableBody) {
-      const topScorers = calculateTopScorers(data.fixtures);
-      topScorersTableBody.innerHTML = ''; // clear existing entries
-      topScorers.forEach(scorer => {
-          const row = `<tr><td>${scorer.name}</td><td>${scorer.team}</td><td>${scorer.goals}</td></tr>`;
-          topScorersTableBody.innerHTML += row;
-      });
+    const topScorers = calculateTopScorers(data.fixtures);
+    topScorersTableBody.innerHTML = ''; // Clear existing entries
+    topScorers.forEach(scorer => {
+      const row = `<tr><td>${scorer.rank}</td><td>${scorer.name}</td><td>${scorer.team}</td><td>${scorer.goals}</td></tr>`;
+      topScorersTableBody.innerHTML += row;
+    });
   }
 }
 
