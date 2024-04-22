@@ -2,27 +2,61 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "league": { "type": "string" },
-    "season": { "type": "string" },
+    "league": {
+      "type": "string"
+    },
+    "season": {
+      "type": "string"
+    },
     "fixtures": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "date": { "type": "string", "format": "date" },
-          "home_team": { "type": "string" },
-          "away_team": { "type": "string" },
-          "time": { "type": "string" },
-          "home_score": { "type": ["integer", "null"] },
-          "away_score": { "type": ["integer", "null"] },
-          "home_scorers": { "type": ["array", "null"], "items": { "type": "string" } },
-          "away_scorers": { "type": ["array", "null"], "items": { "type": "string" } }
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "home_team": {
+            "type": "string"
+          },
+          "away_team": {
+            "type": "string"
+          },
+          "home_score": {
+            "type": "integer"
+          },
+          "away_score": {
+            "type": "integer"
+          },
+          "home_scorers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "away_scorers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         },
-        "required": ["date", "home_team", "away_team"],
-        "additionalProperties": false 
+        "required": [
+          "date",
+          "home_team",
+          "away_team",
+          "home_score",
+          "away_score",
+          "home_scorers",
+          "away_scorers"
+        ]
       }
     }
   },
-  "required": ["league", "season", "fixtures"],
-  "additionalProperties": false 
+  "required": [
+    "league",
+    "season",
+    "fixtures"
+  ]
 }
