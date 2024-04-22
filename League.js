@@ -32,7 +32,7 @@ function calculateLeagueStatistics(fixtures) {
   fixtures.forEach(fixture => {
     const { home_team, away_team, home_score, away_score } = fixture;
 
-    // Initialize team in standings if not already present
+    
     if (!standings[home_team]) {
       standings[home_team] = { played: 0, won: 0, drawn: 0, lost: 0, goals_for: 0, goals_against: 0, points: 0 };
     }
@@ -40,11 +40,11 @@ function calculateLeagueStatistics(fixtures) {
       standings[away_team] = { played: 0, won: 0, drawn: 0, lost: 0, goals_for: 0, goals_against: 0, points: 0 };
     }
 
-    // Update played games
+    
     standings[home_team].played++;
     standings[away_team].played++;
 
-    // Updating goals for and against
+    
     if (home_score !== undefined && away_score !== undefined) {
       standings[home_team].goals_for += home_score;
       standings[away_team].goals_for += away_score;
@@ -52,16 +52,16 @@ function calculateLeagueStatistics(fixtures) {
       standings[away_team].goals_against += home_score;
     }
 
-    // Determine win, draw, or loss and assign points
-    if (home_score > away_score) { // Home team wins
+    
+    if (home_score > away_score) { 
       standings[home_team].won++;
       standings[away_team].lost++;
       standings[home_team].points += 3;
-    } else if (home_score < away_score) { // Away team wins
+    } else if (home_score < away_score) { 
       standings[away_team].won++;
       standings[home_team].lost++;
       standings[away_team].points += 3;
-    } else if (home_score === away_score) { // Draw
+    } else if (home_score === away_score) { 
       standings[home_team].drawn++;
       standings[away_team].drawn++;
       standings[home_team].points += 1;
@@ -92,27 +92,26 @@ function calculateTopScorers(fixtures) {
   });
 
   let sortedScorers = Object.entries(scorersMap)
-    .sort((a, b) => b[1] - a[1]); // Sort based on goals
+    .sort((a, b) => b[1] - a[1]); 
 
-  // Add rank and handle ties
-  let currentRank = 1;
+  let currentRank = 0;
   let previousGoals = null;
   const rankedScorers = sortedScorers.map(([name, goals]) => {
     if (goals !== previousGoals) {
-      previousGoals = goals; // Update previousGoals first
-      currentRank++;          // Then increment rank
+      previousGoals = goals;
+      currentRank++;         
     }
     return { name, goals, team: determineTeam(name, fixtures), rank: currentRank };
   });
 
-  return rankedScorers.slice(0, 20); // Return top 20
+  return rankedScorers.slice(0, 20); 
 }
 
 function updateTopScorersTable(data) {
   const topScorersTableBody = document.getElementById('top-scorers-table');
   if (topScorersTableBody) {
     const topScorers = calculateTopScorers(data.fixtures);
-    topScorersTableBody.innerHTML = ''; // Clear existing entries
+    topScorersTableBody.innerHTML = ''; 
     topScorers.forEach(scorer => {
       const row = `<tr><td>${scorer.rank}</td><td>${scorer.name}</td><td>${scorer.team}</td><td>${scorer.goals}</td></tr>`;
       topScorersTableBody.innerHTML += row;
@@ -172,10 +171,10 @@ function updateData() {
           updateLeagueTable(data);
           updateTopScorersTable(data);
       }
-      setTimeout(updateData, 5000); // Schedule the next update after 5 seconds
+      setTimeout(updateData, 5000); 
   });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  updateData(); // Initial call to start the sequence
+  updateData(); 
 });
