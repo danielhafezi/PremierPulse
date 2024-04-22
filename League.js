@@ -91,11 +91,14 @@ function calculateTopScorers(fixtures) {
       });
   });
 
-  return Object.entries(scorersMap).sort((a, b) => b[1] - a[1]).map(scorer => ({
-      name: scorer[0],
-      goals: scorer[1],
-      team: determineTeam(scorer[0], fixtures) // Use the existing determineTeam logic
-  }));
+  return Object.entries(scorersMap)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 20) 
+      .map(scorer => ({
+          name: scorer[0],
+          goals: scorer[1],
+          team: determineTeam(scorer[0], fixtures)
+      }));
 }
 function updateTopScorersTable(data) {
   const topScorersTableBody = document.getElementById('top-scorers-table');
