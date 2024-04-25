@@ -171,7 +171,7 @@ function updateData() {
           updateLeagueTable(data);
           updateTopScorersTable(data);
       }
-      setTimeout(updateData, 5000); 
+      setTimeout(updateData, 3000); 
   });
 }
 
