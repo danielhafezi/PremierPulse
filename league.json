@@ -380,6 +380,15 @@
       "home_scorers": [],
       "away_scorers": ["Semenyo"]
     },  
+    {
+      "date": "2024-04-25",
+      "home_team": "Brighton & Hove Albion",
+      "away_team": "Manchester City",
+      "home_score": 0,
+      "away_score": 4,
+      "home_scorers": [],
+      "away_scorers": ["De Bruyne", "Foden","Foden","Alvarez"]
+    },  
   {
     "date": "2024-03-02",
     "home_team": "Brentford",
