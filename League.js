@@ -97,15 +97,19 @@ function calculateTopScorers(fixtures) {
   let sortedScorers = Object.entries(scorersMap)
     .sort((a, b) => b[1] - a[1]); 
 
-  let currentRank = 0;
-  let previousGoals = null;
-  const rankedScorers = sortedScorers.map(([name, goals]) => {
-    if (goals !== previousGoals) {
-      previousGoals = goals;
-      currentRank++;         
-    }
-    return { name, goals, team: determineTeam(name, fixtures), rank: currentRank };
-  });
+    let currentRank = 0;
+    let previousGoals = null;
+    let playersWithSameGoals = 0; 
+    const rankedScorers = sortedScorers.map(([name, goals]) => {
+        if (goals !== previousGoals) {
+            previousGoals = goals;
+            currentRank += playersWithSameGoals + 1; 
+            playersWithSameGoals = 0; 
+        } else {
+            playersWithSameGoals++; 
+        }
+        return { name, goals, team: determineTeam(name, fixtures), rank: currentRank };
+    });
 
   return rankedScorers.slice(0, 20); 
 }
