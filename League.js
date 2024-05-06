@@ -11,21 +11,24 @@ async function fetchData(url) {
 
 function getFormString(teamName, fixtures) {
   const recentFixtures = fixtures
-    .filter(fixture => (fixture.home_team === teamName || fixture.away_team === teamName) && fixture.home_score !== undefined)
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 6);
+      .filter(fixture => (fixture.home_team === teamName || fixture.away_team === teamName) && fixture.home_score !== undefined)
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, 6);
 
   let formString = '';
   recentFixtures.forEach(fixture => {
-    if (fixture.home_team === teamName) {
-      formString += fixture.home_score > fixture.away_score ? 'W' : (fixture.home_score < fixture.away_score ? 'L' : 'D');
-    } else {
-      formString += fixture.away_score > fixture.home_score ? 'W' : (fixture.away_score < fixture.home_score ? 'L' : 'D');
-    }
+      if (fixture.home_team === teamName) {
+          formString += fixture.home_score > fixture.away_score ? 'W' : (fixture.home_score < fixture.away_score ? 'L' : 'D');
+      } else {
+          formString += fixture.away_score > fixture.home_score ? 'W' : (fixture.away_score < fixture.home_score ? 'L' : 'D');
+      }
   });
+  formString = formString.split('').reverse().join('');
 
   return formString;
 }
+
+
 
 function calculateLeagueStatistics(fixtures) {
   const standings = {};
