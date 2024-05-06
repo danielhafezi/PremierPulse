@@ -389,6 +389,186 @@
       "home_scorers": [],
       "away_scorers": ["De Bruyne", "Foden","Foden","Alvarez"]
     },  
+      {
+        "date": "2024-04-27",
+        "home_team": "Aston Villa",
+        "away_team": "Chelsea",
+        "home_score": 2,
+        "away_score": 2,
+        "home_scorers": ["Rogers"],
+        "away_scorers": ["Madueke", "Gallagher"]
+      },
+      {
+        "date": "2024-04-27",
+        "home_team": "Everton",
+        "away_team": "Brentford",
+        "home_score": 1,
+        "away_score": 0,
+        "home_scorers": [],
+        "away_scorers": []
+      },
+      {
+        "date": "2024-04-27",
+        "home_team": "Fulham",
+        "away_team": "Crystal Palace",
+        "home_score": 1,
+        "away_score": 1,
+        "home_scorers": ["Muniz"],
+        "away_scorers": ["Schlupp"]
+      },
+      {
+        "date": "2024-04-27",
+        "home_team": "Manchester United",
+        "away_team": "Burnley",
+        "home_score": 1,
+        "away_score": 1,
+        "home_scorers": ["Santos"],
+        "away_scorers": ["Amdouni"]
+      },
+      {
+        "date": "2024-04-27",
+        "home_team": "Newcastle United",
+        "away_team": "Sheffield United",
+        "home_score": 5,
+        "away_score": 1,
+        "home_scorers": ["Isak", "Isak", "Guimaraes", "Wilson"],
+        "away_scorers": ["Ahmedhodzic"]
+      },
+      {
+        "date": "2024-04-27",
+        "home_team": "West Ham United",
+        "away_team": "Liverpool",
+        "home_score": 2,
+        "away_score": 2,
+        "home_scorers": ["Bowen", "Antonio"],
+        "away_scorers": ["Robertson"]
+      },
+      {
+        "date": "2024-04-27",
+        "home_team": "Wolverhampton Wanderers",
+        "away_team": "Luton Town",
+        "home_score": 2,
+        "away_score": 1,
+        "home_scorers": ["Hwang", "Gomes"],
+        "away_scorers": ["Morris"]
+      },
+      {
+        "date": "2024-04-28",
+        "home_team": "AFC Bournemouth",
+        "away_team": "Brighton & Hove Albion",
+        "home_score": 3,
+        "away_score": 0,
+        "home_scorers": ["Senesi", "Unal", "Kluivert"],
+        "away_scorers": []
+      },
+      {
+        "date": "2024-04-28",
+        "home_team": "Nottingham Forest",
+        "away_team": "Manchester City",
+        "home_score": 0,
+        "away_score": 2,
+        "home_scorers": [],
+        "away_scorers": ["Gvardiol", "Erling Haaland"]
+      },
+      {
+        "date": "2024-04-28",
+        "home_team": "Tottenham Hotspur",
+        "away_team": "Arsenal",
+        "home_score": 2,
+        "away_score": 3,
+        "home_scorers": ["Romero", "Son"],
+        "away_scorers": ["Saka", "Havertz"]
+      },
+        {
+          "date": "2024-02-05",
+          "home_team": "Chelsea",
+          "away_team": "Tottenham Hotspur",
+          "home_score": 2,
+          "away_score": 0,
+          "home_scorers": ["Chalobah", "Jackson"],
+          "away_scorers": []
+        },
+        {
+          "date": "2024-03-05",
+          "home_team": "Luton Town",
+          "away_team": "Everton",
+          "home_score": 1,
+          "away_score": 1,
+          "home_scorers": ["Adebayo"],
+          "away_scorers": ["Calvert-Lewin"]
+        },
+        {
+          "date": "2024-05-04",
+          "home_team": "Arsenal",
+          "away_team": "AFC Bournemouth",
+          "home_score": 3,
+          "away_score": 0,
+          "home_scorers": ["Saka", "Trossard", "Rice"],
+          "away_scorers": []
+        },
+        {
+          "date": "2024-05-04",
+          "home_team": "Brentford",
+          "away_team": "Fulham",
+          "home_score": 0,
+          "away_score": 0,
+          "home_scorers": [],
+          "away_scorers": []
+        },
+        {
+          "date": "2024-05-04",
+          "home_team": "Burnley",
+          "away_team": "Newcastle United",
+          "home_score": 1,
+          "away_score": 4,
+          "home_scorers": ["O'Shea"],
+          "away_scorers": ["Wilson", "Longstaff", "Guimaraes", "Isak"]
+        },
+        {
+          "date": "2024-05-04",
+          "home_team": "Manchester City",
+          "away_team": "Wolverhampton Wanderers",
+          "home_score": 5,
+          "away_score": 1,
+          "home_scorers": ["Erling Haaland", "Erling Haaland", "Erling Haaland", "Erling Haaland", "Álvarez"],
+          "away_scorers": ["Hwang"]
+        },
+        {
+          "date": "2024-05-04",
+          "home_team": "Sheffield United",
+          "away_team": "Nottingham Forest",
+          "home_score": 1,
+          "away_score": 3,
+          "home_scorers": ["Brereton"],
+          "away_scorers": ["Hudson-Odoi", "Hudson-Odoi", "Yates"]
+        },
+        {
+          "date": "2024-05-05",
+          "home_team": "Brighton & Hove Albion",
+          "away_team": "Aston Villa",
+          "home_score": 1,
+          "away_score": 0,
+          "home_scorers": ["Pedro"],
+          "away_scorers": []
+        },
+        {
+          "date": "2024-05-05",
+          "home_team": "Chelsea",
+          "away_team": "West Ham United",
+          "home_score": 5,
+          "away_score": 0,
+          "home_scorers": ["Palmer", "Gallagher", "Madueke", "Jackson", "Jackson"],
+          "away_scorers": []
+        },
+        {
+          "date": "2024-05-05",
+          "home_team": "Liverpool",
+          "away_team": "Tottenham Hotspur",
+          "home_score": 4,
+          "away_score": 2,
+          "home_scorers": ["Salah", "Robertson", "Gakpo", "Elliott"],
+          "away_scorers": ["Richarlison", "Son"]
+        },      
   {
     "date": "2024-03-02",
     "home_team": "Brentford",
