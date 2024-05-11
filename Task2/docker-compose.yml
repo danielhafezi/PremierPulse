@@ -9,6 +9,7 @@ services:
       - 80:80
     volumes:
       - ./src:/var/www/html/
+      - ./php.ini:/usr/local/etc/php/php.ini  # Add this line
     depends_on:
       - db
     environment:
