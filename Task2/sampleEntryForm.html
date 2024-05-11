@@ -15,47 +15,17 @@
             </ul>
         </nav>
         <main>
-            <h3>Sample Football Teams Entry Form</h3>
-            <div class="sketch">
-            </div>    
-            <form action="add_team.php" method="post" class="addmore">
-                <table>
-                    <tr>
-                        <td><label for="team_name">Team Name:</label></td>
-                        <td><input type="text" id="team_name" name="team_name" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="city">City:</label></td>
-                        <td><input type="text" id="city" name="city" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="manager">Manager:</label></td>
-                        <td><input type="text" id="manager" name="manager" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="played">Played:</label></td>
-                        <td><input type="number" id="played" name="played" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="wins">Wins:</label></td>
-                        <td><input type="number" id="wins" name="wins" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="losses">Losses:</label></td>
-                        <td><input type="number" id="losses" name="losses" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="draws">Draws:</label></td>
-                        <td><input type="number" id="draws" name="draws" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="points">Points:</label></td>
-                        <td><input type="number" id="points" name="points" required></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input type="submit" value="Add Football Team"></td>
-                    </tr>
-                </table>               
+            <h3>Sample Football Teams Entery Form</h3>
+            <form action="post">
+                <div class="sketch">
+                    <img src="./sampleEntryForm.jpeg" alt="New course entry form">
+                </div>    
+                <div class="addmore">
+                    <!-- add more feilds for the remaining recipe info ...-->
+                    <p class="note">The sketch above provides an incomplete list of the required information for a new football team. You need to add the missing feilds to the New Football Team Entry Form you are going to develop.</p>
+                    <input type="submit" value="Add Football Team" />
+                    <!--input type="reset" value="Cancel" /-->                
+                </div>
             </form>
         </main>
         <footer>&copy; CSYM019 2024</footer>
