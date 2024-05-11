@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>New Football Team</title>
-        <link rel="stylesheet" href="layout.css">
-    </head>
-    <body>
-        <header>
-            <h3>CSYM019 - Premier League Results</h3>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="./SelectionForm.html">Premier League Report</a></li>
-                <li><a href="./sampleEntryForm.html">Add New Football Team</a></li>
-            </ul>
-        </nav>
-        <main>
-            <h3>Sample Football Teams Entry Form</h3>
-            <form action="add_team.php" method="post"> 
-                <div class="sketch">
-                    <img src="./sampleEntryForm.jpeg" alt="New course entry form">
-                </div>    
-                <div class="addmore">
-                    <label for="team_name">Team Name:</label><br>
-                    <input type="text" id="team_name" name="team_name" required><br><br>
+<head>
+    <title>New Football Team</title>
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="sampleEntryForm.css"> </head>
+<body>
+    <header>
+        <h3>CSYM019 - Premier League Results</h3>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./SelectionForm.html">Premier League Report</a></li>
+            <li><a href="./sampleEntryForm.html">Add New Football Team</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h3>Sample Football Teams Entry Form</h3>
+        <form action="add_team.php" method="post" class="entry-form"> 
+            <div class="sketch">
+                <img src="./sampleEntryForm.jpeg" alt="New course entry form">
+            </div>    
+            <div class="addmore">
+                <label for="team_name">Team Name:</label><br>
+                <input type="text" id="team_name" name="team_name" required><br><br>
 
-                    <label for="city">City:</label><br>
-                    <input type="text" id="city" name="city" required><br><br>
+                <label for="city">City:</label><br>
+                <input type="text" id="city" name="city" required><br><br>
 
-                    <label for="manager">Manager:</label><br>
-                    <input type="text" id="manager" name="manager" required><br><br>
+                <label for="manager">Manager:</label><br>
+                <input type="text" id="manager" name="manager" required><br><br>
 
-                    <label for="played">Played:</label><br>
-                    <input type="number" id="played" name="played" required><br><br>
+                <label for="played">Played:</label><br>
+                <input type="number" id="played" name="played" required><br><br>
 
-                    <label for="wins">Wins:</label><br>
-                    <input type="number" id="wins" name="wins" required><br><br>
+                <label for="wins">Wins:</label><br>
+                <input type="number" id="wins" name="wins" required><br><br>
 
-                    <label for="losses">Losses:</label><br>
-                    <input type="number" id="losses" name="losses" required><br><br>
+                <label for="losses">Losses:</label><br>
+                <input type="number" id="losses" name="losses" required><br><br>
 
-                    <label for="draws">Draws:</label><br>
-                    <input type="number" id="draws" name="draws" required><br><br>
+                <label for="draws">Draws:</label><br>
+                <input type="number" id="draws" name="draws" required><br><br>
 
-                    <label for="points">Points:</label><br>
-                    <input type="number" id="points" name="points" required><br><br>
+                <label for="points">Points:</label><br>
+                <input type="number" id="points" name="points" required><br><br>
 
-                    <input type="submit" value="Add Football Team">               
-                </div>
-            </form>
-        </main>
-        <footer>&copy; CSYM019 2024</footer>
-    </body>
+                <input type="submit" value="Add Football Team">               
+            </div>
+        </form>
+    </main>
+    <footer>&copy; CSYM019 2024</footer>
+</body>
 </html>
