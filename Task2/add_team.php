@@ -1,16 +1,20 @@
 <?php
-// Include db and header
 require 'includes/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST['name']);
     $city = trim($_POST['city']);
-    // Additional fields as necessary
+    $manager = trim($_POST['manager']);
+    $points = $_POST['points'];
+    $wins = $_POST['wins'];
+    $losses = $_POST['losses'];
+    $draws = $_POST['draws'];
+    $played_games = $_POST['played_games'];
+    $remaining_matches = $_POST['remaining_matches'];
 
-    // Prepare an INSERT statement
-    $sql = "INSERT INTO teams (name, city) VALUES (?, ?)";
+    $sql = "INSERT INTO teams (name, city, manager, points, wins, losses, draws, played_games, remaining_matches) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     if ($stmt = $conn->prepare($sql)) {
-        $stmt->bind_param("ss", $name, $city);
+        $stmt->bind_param("sssiissss", $name, $city, $manager, $points, $wins, $losses, $draws, $played_games, $remaining_matches);
 
         if ($stmt->execute()) {
             echo "<p>Team successfully added.</p>";
@@ -22,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -42,16 +47,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <main>
             <h3>Sample Football Teams Entry Form</h3>
             <form action="add_team.php" method="post">
-                <label for="name">Team Name:</label>
-                <input type="text" id="name" name="name" required><br>
+    <label for="name">Team Name:</label>
+    <input type="text" id="name" name="name" required><br>
 
-                <label for="city">City:</label>
-                <input type="text" id="city" name="city" required><br>
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required><br>
 
-                <!-- Additional fields -->
-                
-                <input type="submit" value="Add Football Team">
-            </form>
+    <label for="manager">Manager:</label>
+    <input type="text" id="manager" name="manager" required><br>
+
+    <label for="points">Points:</label>
+    <input type="number" id="points" name="points" required><br>
+
+    <label for="wins">Wins:</label>
+    <input type="number" id="wins" name="wins" required><br>
+
+    <label for="losses">Losses:</label>
+    <input type="number" id="losses" name="losses" required><br>
+
+    <label for="draws">Draws:</label>
+    <input type="number" id="draws" name="draws" required><br>
+
+    <label for="played_games">Played Games:</label>
+    <input type="number" id="played_games" name="played_games" required><br>
+
+    <label for="remaining_matches">Remaining Games:</label>
+    <input type="number" id="remaining_matches" name="remaining_matches" required><br>
+
+    <input type="submit" value="Add Football Team">
+</form>
+
         </main>
         <footer>
             &copy; CSYM019 2024
