@@ -1,19 +1,22 @@
 <?php
 require 'includes/db.php';
 
-echo "<h2>Edit Team Information</h2>";
-
+// Display all teams with edit and delete options
 $sql = "SELECT id, name, city, manager, points, wins, losses, draws, played_games, remaining_matches FROM teams";
-if ($result = $conn->query($sql)) {
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<h2>Edit or Delete Teams</h2>";
     while ($row = $result->fetch_assoc()) {
         echo "<div>";
-        echo "<h4>" . htmlspecialchars($row['name']) . "</h4>";
+        echo "<p><strong>" . htmlspecialchars($row['name']) . "</strong> - " . htmlspecialchars($row['city']) . "</p>";
         echo "<p>Manager: " . htmlspecialchars($row['manager']) . "</p>";
-        // Add more details as needed...
-        echo "<a href='edit_team.php?id=" . $row['id'] . "'>Edit</a>";
+        echo "<a href='team_edit_form.php?id=" . $row['id'] . "'>Edit</a> | ";
+        echo "<a href='delete_team.php?id=" . $row['id'] . "' onclick='return confirm(\"Are you sure you want to delete this team?\");'>Delete</a>";
         echo "</div>";
     }
 } else {
-    echo "Error fetching teams: " . $conn->error;
+    echo "No teams found.";
 }
+$conn->close();
 ?>
