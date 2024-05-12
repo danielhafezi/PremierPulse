@@ -1,8 +1,14 @@
 <?php
 require 'includes/db.php';
 
-// Fetch selected teams
-$team_ids = $_POST['team_ids'];
+$team_ids = $_POST['team_ids'] ?? [];
+
+if (count($team_ids) < 1) {
+    echo "No teams were selected for the report. Please go back and select at least one team.";
+    exit;
+}
+
+// Convert array of team IDs from the form into a format SQL can use
 $team_ids = implode(",", array_map('intval', $team_ids));
 
 $sql = "SELECT * FROM teams WHERE id IN ($team_ids)";
@@ -12,67 +18,100 @@ $teams = [];
 while ($row = $result->fetch_assoc()) {
     $teams[] = $row;
 }
-
-echo "<h1>Football Teams Detailed Report</h1>";
-echo "<table border='1'>";
-echo "<tr><th>Club</th><th>City</th><th>Manager</th><th>Points</th><th>Wins</th><th>Losses</th><th>Draws</th><th>Played Games</th><th>Remaining Matches</th></tr>";
-foreach ($teams as $team) {
-    echo "<tr>";
-    echo "<td>" . htmlspecialchars($team['name']) . "</td>";
-    echo "<td>" . htmlspecialchars($team['city']) . "</td>";
-    echo "<td>" . htmlspecialchars($team['manager']) . "</td>";
-    echo "<td>" . $team['points'] . "</td>";
-    echo "<td>" . $team['wins'] . "</td>";
-    echo "<td>" . $team['losses'] . "</td>";
-    echo "<td>" . $team['draws'] . "</td>";
-    echo "<td>" . $team['played_games'] . "</td>";
-    echo "<td>" . $team['remaining_matches'] . "</td>";
-    echo "</tr>";
-    echo "<tr><td colspan='9'><canvas id='pieChart" . $team['id'] . "'></canvas></td></tr>"; // Include a row for the pie chart
-}
-echo "</table>";
+$conn->close();
 ?>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-var teams = <?php echo json_encode($teams); ?>;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Teams Report</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Football Teams Detailed Report</h1>
+    <?php foreach ($teams as $team): ?>
+        <div>
+            <h2><?php echo htmlspecialchars($team['name']); ?></h2>
+            <p>Manager: <?php echo htmlspecialchars($team['manager']); ?></p>
+            <div>
+                <canvas id="pieChart<?php echo $team['id']; ?>"></canvas>
+            </div>
+        </div>
+    <?php endforeach; ?>
 
-teams.forEach(team => {
-    var ctxPie = document.getElementById('pieChart' + team.id).getContext('2d');
-    new Chart(ctxPie, {
-        type: 'pie',
-        data: {
-            labels: ['Wins', 'Losses', 'Draws', 'Remaining Matches', 'Played Games'],
-            datasets: [{
-                data: [team.wins, team.losses, team.draws, team.remaining_matches, team.played_games],
-                backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'],
-                borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)', 'rgba(255, 206, 86, 1)', 'rgba(54, 162, 235, 1)', 'rgba(153, 102, 255, 1)'],
-                borderWidth: 1
-            }]
-        }
-    });
-});
+    <?php if (count($teams) > 1): ?>
+        <h2>Comparative Analysis</h2>
+        <div>
+            <canvas id="barChart"></canvas>
+        </div>
+    <?php endif; ?>
 
-if (teams.length > 1) {
-    // Display the bar chart for multiple teams
-    var ctxBar = document.getElementById('barChart').getContext('2d');
-    new Chart(ctxBar, {
-        type: 'bar',
-        data: {
-            labels: teams.map(team => team.name),
-            datasets: [
-                { label: 'Wins', data: teams.map(team => team.wins / team.played_games * 100), backgroundColor: 'rgba(75, 192, 192, 0.5)' },
-                { label: 'Losses', data: teams.map(team => team.losses / team.played_games * 100), backgroundColor: 'rgba(255, 99, 132, 0.5)' },
-                { label: 'Draws', data: teams.map(team => team.draws / team.played_games * 100), backgroundColor: 'rgba(255, 206, 86, 0.5)' },
-                { label: 'Remaining Matches', data: teams.map(team => team.remaining_matches / team.played_games * 100), backgroundColor: 'rgba(54, 162, 235, 0.5)' }
-            ]
-        },
-        options: {
-            scales: {
-                y: { beginAtZero: true }
-            }
+    <script>
+        teams = <?php echo json_encode($teams); ?>;
+
+        teams.forEach(team => {
+            var ctxPie = document.getElementById('pieChart' + team.id).getContext('2d');
+            new Chart(ctxPie, {
+                type: 'pie',
+                data: {
+                    labels: ['Wins', 'Losses', 'Draws', 'Remaining Matches', 'Played Games'],
+                    datasets: [{
+                        data: [team.wins, team.losses, team.draws, team.remaining_matches, team.played_games],
+                        backgroundColor: [
+                            'rgba(102, 255, 102, 0.6)',
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(153, 102, 255, 0.6)'
+                        ],
+                        borderColor: 'rgba(255, 255, 255, 1)',
+                        borderWidth: 1
+                    }]
+                }
+            });
+        });
+
+        if (teams.length > 1) {
+            var ctxBar = document.getElementById('barChart').getContext('2d');
+            new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: teams.map(team => team.name),
+                    datasets: [
+                        {
+                            label: 'Wins',
+                            data: teams.map(team => team.wins),
+                            backgroundColor: 'rgba(75, 192, 192, 0.8)'
+                        },
+                        {
+                            label: 'Losses',
+                            data: teams.map(team => team.losses),
+                            backgroundColor: 'rgba(255, 99, 132, 0.8)'
+                        },
+                        {
+                            label: 'Draws',
+                            data: teams.map(team => team.draws),
+                            backgroundColor: 'rgba(255, 206, 86, 0.8)'
+                        },
+                        {
+                            label: 'Remaining Matches',
+                            data: teams.map(team => team.remaining_matches),
+                            backgroundColor: 'rgba(54, 162, 235, 0.8)'
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
         }
-    });
-    document.write('<canvas id="barChart"></canvas>'); // Writing the canvas element into the document
-}
-</script>
+    </script>
+</body>
+</html>
