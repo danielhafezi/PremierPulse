@@ -14,6 +14,7 @@ require 'includes/db.php';
 
     <nav>
         <ul>
+        <li><a href="dashboard.php">Dashboard</a></li>
         <li><a href="add_team.php">Add New Team</a></li>
             <li><a href="report.php">Report</a></li>
             <!-- Add other necessary links -->

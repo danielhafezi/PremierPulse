@@ -52,12 +52,13 @@ if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
     </header>
     <nav>
         <ul>
+            <li><a href="dashboard.php">Dashboard</a></li>
             <li><a href="report.php">Report</a></li>
             <li><a href="add_team.php">Add New Football Team</a></li>
         </ul>
     </nav>
     <main>
-        <h2>Edit Team</h2>
+        <h2>Edit Team Form</h2>
         <form action="team_edit_form.php?id=<?php echo htmlspecialchars($id); ?>" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($team['name']); ?>" required><br>

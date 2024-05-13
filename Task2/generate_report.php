@@ -121,6 +121,7 @@ $conn->close();
 
     <nav>
         <ul>
+            <li><a href="dashboard.php">Dashboard</a></li>
             <li><a href="report.php">Back to Team Performance Report</a></li>
             <li><a href="add_team.php">Add New Team</a></li>
             <li><a href="edit_team.php">Edit Existing Team</a></li>

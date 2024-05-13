@@ -36,10 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </head>
     <body>
         <header>
-            <h3>Add New Team</h3>
+            <h1>Add New Team</h1>
         </header>
         <nav>
             <ul>
+               <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="report.php">Premier League Report</a></li>
                 <li><a href="edit_team.php">Edit Existing Team</a></li>
             </ul>
