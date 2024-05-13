@@ -47,7 +47,7 @@ require 'includes/db.php';
     </main>
 
     <footer>
-        <p>© 2023 Team Management System</p>
+        <p>Premier League Management System © 2024</p>
     </footer>
 
     <?php $conn->close(); ?>

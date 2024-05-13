@@ -151,7 +151,7 @@ $conn->close();
     </main>
 
     <footer>
-        <p>&copy; 2023 Team Performance Inc.</p>
+        <p>Premier League Management System © 2024</p>
     </footer>
 
     <script>

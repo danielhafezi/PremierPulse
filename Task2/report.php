@@ -80,7 +80,7 @@ echo "</main>";
 $conn->close();
 
 // Footer
-echo "<footer><p>&copy; 2023 Team Performance Inc.</p></footer>";
+echo "<footer><p>Premier League Management System © 2024</p></footer>";
 
 echo "</body>";
 echo "</html>";

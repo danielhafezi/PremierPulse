@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </main>
         <footer>
-            &copy; CSYM019 2024
+        Premier League Management System © 2024
         </footer>
     </body>
 </html>
