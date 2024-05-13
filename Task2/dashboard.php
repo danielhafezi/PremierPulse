@@ -18,13 +18,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <header>
         <h1>Welcome to the Premier League Management System</h1>
         <p>Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?>!</p>
-        <a href="logout.php">Logout</a>
     </header>
     <nav>
         <ul>
             <li><a href="add_team.php">Add New Team</a></li>
             <li><a href="edit_team.php">Edit Existing Team</a></li>
             <li><a href="report.php">Report</a></li>
+            <li><a href="logout.php">Logout</a></li> <!-- Logout button moved here -->
         </ul>
     </nav>
     <main>
