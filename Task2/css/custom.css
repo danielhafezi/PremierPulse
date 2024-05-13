@@ -46,6 +46,10 @@ body {
     }
     
     main {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* This will help in making sure everything in main is centered, including your table */
+        justify-content: center;
         flex: 1;  /* Allows the main content to expand and fill available space */
         margin: 20px;
         border-radius: 5px;
@@ -98,12 +102,15 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background: linear-gradient(145deg, #15803d, #166534);  /* Darker green gradient on hover */
 }
-
+h2 {
+    margin: 0;
+    margin-bottom: 30px; /* Increased space between the h2 element and what follows */
+}
     
     /* Table Styles */
     table {
-    width: 100%;
-    border-collapse: collapse;
+        width: 80%;
+        margin: 0 auto !important; /* Force overriding other margin settings */
     }
     
     th, td {

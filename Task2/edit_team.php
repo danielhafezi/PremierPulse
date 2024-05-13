@@ -15,7 +15,7 @@ require 'includes/db.php';
     <nav>
         <ul>
         <li><a href="add_team.php">Add New Team</a></li>
-            <li><a href="report.php">Generate Report</a></li>
+            <li><a href="report.php">Report</a></li>
             <!-- Add other necessary links -->
         </ul>
     </nav>
