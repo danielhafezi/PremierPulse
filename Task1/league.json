@@ -489,7 +489,7 @@
           "away_scorers": []
         },
         {
-          "date": "2024-03-05",
+          "date": "2024-05-03",
           "home_team": "Luton Town",
           "away_team": "Everton",
           "home_score": 1,
@@ -2800,15 +2800,6 @@
         "away_score": 1,
         "home_scorers": ["Durán", "Luiz", "Bailey"],
         "away_scorers": ["Edouard"]
-      },
-      {
-        "date": "2023-09-16",
-        "home_team": "Fulham",
-        "away_team": "Luton Town",
-        "home_score": 1,
-        "away_score": 0,
-        "home_scorers": ["Vinícius"],
-        "away_scorers": []
       },
       {
         "date": "2023-09-16",
