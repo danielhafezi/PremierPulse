@@ -569,6 +569,96 @@
           "home_scorers": ["Salah", "Robertson", "Gakpo", "Elliott"],
           "away_scorers": ["Richarlison", "Son"]
         },      
+        {
+          "date": "2024-05-06",
+          "home_team": "Crystal Palace",
+          "away_team": "Manchester United",
+          "home_score": 4,
+          "away_score": 0,
+          "home_scorers": ["Olise", "Olise", "Mateta", "Mitchell"],
+          "away_scorers": []
+      },
+      {
+          "date": "2024-05-11",
+          "home_team": "AFC Bournemouth",
+          "away_team": "Brentford",
+          "home_score": 1,
+          "away_score": 2,
+          "home_scorers": ["Solanke"],
+          "away_scorers": ["Wissa"]
+      },
+      {
+          "date": "2024-05-11",
+          "home_team": "Everton",
+          "away_team": "Sheffield United",
+          "home_score": 1,
+          "away_score": 0,
+          "home_scorers": ["Doucoure"],
+          "away_scorers": []
+      },
+      {
+          "date": "2024-05-11",
+          "home_team": "Fulham",
+          "away_team": "Manchester City",
+          "home_score": 0,
+          "away_score": 4,
+          "home_scorers": [],
+          "away_scorers": ["Gvardiol", "Gvardiol", "Foden", "Álvarez"]
+      },
+      {
+          "date": "2024-05-11",
+          "home_team": "Newcastle United",
+          "away_team": "Brighton & Hove Albion",
+          "home_score": 1,
+          "away_score": 1,
+          "home_scorers": ["Longstaff"],
+          "away_scorers": ["Veltman"]
+      },
+      {
+          "date": "2024-05-11",
+          "home_team": "Nottingham Forest",
+          "away_team": "Chelsea",
+          "home_score": 2,
+          "away_score": 3,
+          "home_scorers": ["Boly", "Hudson-Odoi"],
+          "away_scorers": ["Mudryk", "Sterling", "Jackson"]
+      },
+      {
+          "date": "2024-05-11",
+          "home_team": "Tottenham Hotspur",
+          "away_team": "Burnley",
+          "home_score": 2,
+          "away_score": 1,
+          "home_scorers": ["Porro", "van de Ven"],
+          "away_scorers": ["Bruun Larsen"]
+      },
+      {
+          "date": "2024-05-11",
+          "home_team": "West Ham United",
+          "away_team": "Luton Town",
+          "home_score": 3,
+          "away_score": 1,
+          "home_scorers": ["Ward-Prowse", "Soucek", "Earthy"],
+          "away_scorers": ["Sambi Lokonga"]
+      },
+      {
+          "date": "2024-05-11",
+          "home_team": "Wolverhampton Wanderers",
+          "away_team": "Crystal Palace",
+          "home_score": 1,
+          "away_score": 3,
+          "home_scorers": ["Cunha"],
+          "away_scorers": ["Olise", "Mateta", "Eze"]
+      },
+      {
+          "date": "2024-05-12",
+          "home_team": "Manchester United",
+          "away_team": "Arsenal",
+          "home_score": 0,
+          "away_score": 1,
+          "home_scorers": [],
+          "away_scorers": ["Trossard"]
+      },
   {
     "date": "2024-03-02",
     "home_team": "Brentford",
