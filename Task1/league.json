@@ -141,11 +141,11 @@
     "date": "2024-04-06",
     "home_team": "Luton Town",
     "away_team": "AFC Bournemouth",
-    "home_score": 2,
-    "away_score": 1,
-    "home_scorers": ["Clark", "Morris"],
+    "home_score": 1,
+    "away_score": 2,
+    "home_scorers": [],
     "away_scorers": ["Tavernier"]
-  },
+  },  
   {
     "date": "2024-04-06",
     "home_team": "Wolverhampton Wanderers",
@@ -1810,15 +1810,6 @@
     "away_score": 2,
     "home_scorers": [],
     "away_scorers": ["Richarlison", "Kulusevski"]
-  },
-  {
-    "date": "2023-12-16",
-    "home_team": "AFC Bournemouth",
-    "away_team": "Luton Town",
-    "home_score": 1,
-    "away_score": 1,
-    "home_scorers": ["Solanke"],
-    "away_scorers": ["Adebayo"]
   },
   {
     "date": "2023-12-16",
