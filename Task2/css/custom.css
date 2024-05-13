@@ -79,7 +79,7 @@ label {
 input[type="text"],
 input[type="number"],
 input[type="password"] {
-    width: 100%;
+    width: 500px;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -88,7 +88,7 @@ input[type="password"] {
 }
 
 input[type="submit"] {
-    width: 100%;                   /* Same width as other inputs */
+    width: 500px;                   /* Same width as other inputs */
     background: linear-gradient(145deg, #22c55e, #0d4d24);  /* Green gradient */
     color: white;
     padding: 8px;                 /* Padding similar to other input fields */
@@ -108,18 +108,16 @@ h2 {
 }
     
     /* Table Styles */
-table {
-    width: 60%;          /* Adjusted width from 80% to 60% */
-    margin: 20px auto;   /* Vertical margin added and horizontal auto for center alignment */
-    text-align: center;  /* Center alignment of text inside the table */
-}
-
-th, td {
+    table {
+        width: 80%; /* adjust to your preference, initially 100% */
+        margin: 0 auto; /* ensures table centering */
+    }
+    
+    th, td {
     padding: 8px;
-    text-align: center;  /* Ensure that header and data cells are also centered */
+    text-align: left;
     border-bottom: 1px solid #ddd;
-}
-
+    }
     
     th {
     background-color: #f2f2f2;
@@ -135,4 +133,17 @@ th, td {
     .success {
     color: green;
     margin-bottom: 10px;
+
     }
+.report-table {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto; /* Centers the table horizontally */
+    border-collapse: collapse;
+}
+
+.report-table th, .report-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}

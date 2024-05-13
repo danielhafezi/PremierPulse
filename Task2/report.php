@@ -31,10 +31,21 @@ echo "<nav><ul><li><a href='add_team.php'>Add New Team</a></li><li><a href='edit
 
 // Main content
 echo "<main>";
-echo "<h2>Overview of Teams</h2>"; // Title with margin bottom for space
+echo "<h2>Premier League Table</h2>"; // Title with margin bottom for space
 echo "<form action='generate_report.php' method='post'>";
-echo "<table>";
-echo "<tr><th>Select</th><th>Club</th><th>City</th><th>Manager</th><th>Points</th><th>Wins</th><th>Losses</th><th>Draws</th><th>Played Games</th><th>Remaining Matches</th></tr>";
+echo "<table class='report-table' style='margin: 0 auto; width: 90%; max-width: 800px; border-collapse: collapse;'>";
+echo "<tr>
+        <th>Select</th>
+        <th>Club</th>
+        <th>City</th>
+        <th>Manager</th>
+        <th>Points</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Draws</th>
+        <th>Played Games</th>
+        <th>Remaining Matches</th>
+      </tr>";
 
 $sql = "SELECT * FROM teams ORDER BY points DESC";
 $result = $conn->query($sql);
