@@ -29,25 +29,89 @@ $conn->close();
     <title>Football Teams Report</title>
     <link rel="stylesheet" href="css/custom.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .team-section {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-section h2 {
+            margin-bottom: 10px;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+        }
+
+        .comparative-section {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparative-section h2 {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Football Teams Detailed Report</h1>
-    <?php foreach ($teams as $team): ?>
-        <div>
-            <h2><?php echo htmlspecialchars($team['name']); ?></h2>
-            <p>Manager: <?php echo htmlspecialchars($team['manager']); ?></p>
-            <div>
-                <canvas id="pieChart<?php echo $team['id']; ?>"></canvas>
-            </div>
-        </div>
-    <?php endforeach; ?>
+    <header>
+        <h1>Football Teams Detailed Report</h1>
+    </header>
 
-    <?php if (count($teams) > 1): ?>
-        <h2>Comparative Analysis</h2>
-        <div>
-            <canvas id="barChart"></canvas>
-        </div>
-    <?php endif; ?>
+    <nav>
+        <ul>
+            <li><a href="report.php">Back to Team Performance Report</a></li>
+            <li><a href="add_team.php">Add New Team</a></li>
+            <li><a href="edit_team.php">Edit Existing Team</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <?php foreach ($teams as $team): ?>
+            <div class="team-section">
+                <h2><?php echo htmlspecialchars($team['name']); ?></h2>
+                <p>Manager: <?php echo htmlspecialchars($team['manager']); ?></p>
+                <div class="chart-container">
+                    <canvas id="pieChart<?php echo $team['id']; ?>"></canvas>
+                </div>
+            </div>
+        <?php endforeach; ?>
+
+        <?php if (count($teams) > 1): ?>
+            <div class="comparative-section">
+                <h2>Comparative Analysis</h2>
+                <div class="chart-container">
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+        <?php endif; ?>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Team Performance Inc.</p>
+    </footer>
 
     <script>
         teams = <?php echo json_encode($teams); ?>;
@@ -70,6 +134,10 @@ $conn->close();
                         borderColor: 'rgba(255, 255, 255, 1)',
                         borderWidth: 1
                     }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
                 }
             });
         });
@@ -104,6 +172,8 @@ $conn->close();
                     ]
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: {
                             beginAtZero: true
