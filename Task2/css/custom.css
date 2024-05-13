@@ -3,16 +3,14 @@ html {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    display: flex;         /* Use flexbox to allow 'flexible' layouts */
+    flex-direction: column; /* Stack elements vertically */
+    min-height: 100vh;      /* Minimum height is full viewport */
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    justify-content: center; /* Add this line to center the content vertically */
+    background-color: #f2f2f2;  
 }
-
     
     header {
     background-color: #e8ee4e;
@@ -87,7 +85,7 @@ input[type="password"] {
 
 input[type="submit"] {
     width: 100%;                   /* Same width as other inputs */
-    background: linear-gradient(145deg, #22c55e, #16a34a);  /* Green gradient */
+    background: linear-gradient(145deg, #22c55e, #0d4d24);  /* Green gradient */
     color: white;
     padding: 8px;                 /* Padding similar to other input fields */
     border: none;

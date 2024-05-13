@@ -8,25 +8,46 @@ require 'includes/db.php';
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-<?php
-// Display all teams with edit and delete options
-$sql = "SELECT id, name, city, manager, points, wins, losses, draws, played_games, remaining_matches FROM teams";
-$result = $conn->query($sql);
+    <header>
+        <h1>Edit Team Information</h1>
+    </header>
 
-if ($result->num_rows > 0) {
-    echo "<h2>Edit or Delete Teams</h2>";
-    while ($row = $result->fetch_assoc()) {
-        echo "<div>";
-        echo "<p><strong>" . htmlspecialchars($row['name']) . "</strong> - " . htmlspecialchars($row['city']) . "</p>";
-        echo "<p>Manager: " . htmlspecialchars($row['manager']) . "</p>";
-        echo "<a href='team_edit_form.php?id=" . $row['id'] . "'>Edit</a> | ";
-        echo "<a href='delete_team.php?id=" . $row['id'] . "' onclick='return confirm(\"Are you sure you want to delete this team?\");'>Delete</a>";
-        echo "</div>";
-    }
-} else {
-    echo "No teams found.";
-}
-$conn->close();
-?>
+    <nav>
+        <ul>
+        <li><a href="add_team.php">Add New Team</a></li>
+            <li><a href="report.php">Generate Report</a></li>
+            <!-- Add other necessary links -->
+        </ul>
+    </nav>
+
+    <main>
+        <?php
+        $sql = "SELECT id, name, city, manager, points, wins, losses, draws, played_games, remaining_matches FROM teams";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            echo "<h2>Edit or Delete Teams</h2>";
+            echo "<table>";
+            echo "<tr><th>Name</th><th>City</th><th>Manager</th><th>Options</th></tr>";
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['city']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['manager']) . "</td>";
+                echo "<td><a href='team_edit_form.php?id=" . $row['id'] . "'>Edit</a> | <a href='delete_team.php?id=" . $row['id'] . "' onclick='return confirm(\"Are you sure you want to delete this team?\");'>Delete</a></td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "No teams found.";
+        }
+        ?>
+    </main>
+
+    <footer>
+        <p>© 2023 Team Management System</p>
+    </footer>
+
+    <?php $conn->close(); ?>
 </body>
 </html>
