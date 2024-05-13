@@ -17,7 +17,7 @@ body {
     }
     
     nav {
-    background-color: #f9f9f9;
+    background-color: #310f38;
     padding: 10px;
     text-align: center;
     }
@@ -35,7 +35,7 @@ body {
     
     nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #fff;
     }
     
     main {
@@ -47,7 +47,7 @@ body {
     }
     
     footer {
-    background-color: #333;
+    background-color: #310f38;
     color: #fff;
     padding: 10px;
     text-align: center;
