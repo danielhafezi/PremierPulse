@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
     <head>
         <title>New Football Team</title>
-        <link rel="stylesheet" href="css/styles.css"> <!-- Ensure the path to your CSS is correct -->
+        <link rel="stylesheet" href="css/custom.css">
     </head>
     <body>
         <header>

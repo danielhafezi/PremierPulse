@@ -1,6 +1,15 @@
 <?php
 require 'includes/db.php';
 
+// Start HTML output
+echo "<!DOCTYPE html>";
+echo "<html>";
+echo "<head>";
+echo "<title>Team Report</title>";
+echo "<link rel='stylesheet' href='css/custom.css'>";  // Link to your CSS file
+echo "</head>";
+echo "<body>";
+
 // Fetch all teams ordered by points
 $sql = "SELECT * FROM teams ORDER BY points DESC";
 $result = $conn->query($sql);
@@ -28,5 +37,8 @@ echo "</table>";
 echo "<input type='submit' value='Generate Report'>";
 echo "</form>";
 $conn->close();
-?>
 
+// End HTML output
+echo "</body>";
+echo "</html>";
+?>
