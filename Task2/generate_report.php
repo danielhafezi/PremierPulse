@@ -33,18 +33,49 @@ $conn->close();
         body {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 20px;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
-        h1 {
-            margin-bottom: 30px;
+        header {
+            background-color: #e8ee4e;
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #310f38;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
         }
 
         .team-section {
             width: 100%;
             max-width: 800px;
-            margin-bottom: 40px;
+            margin: 0 auto 40px;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
@@ -64,6 +95,7 @@ $conn->close();
         .comparative-section {
             width: 100%;
             max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
@@ -72,6 +104,13 @@ $conn->close();
 
         .comparative-section h2 {
             margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #310f38;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
         }
     </style>
 </head>

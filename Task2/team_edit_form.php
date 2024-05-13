@@ -48,11 +48,11 @@ if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
 </head>
 <body>
     <header>
-        <h3>CSYM019 - Premier League Results</h3>
+        <h1>Edit Existing Team</h1>
     </header>
     <nav>
         <ul>
-            <li><a href="report.php">Premier League Report</a></li>
+            <li><a href="report.php">Report</a></li>
             <li><a href="add_team.php">Add New Football Team</a></li>
         </ul>
     </nav>
