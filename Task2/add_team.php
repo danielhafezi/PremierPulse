@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
         </nav>
         <main>
-            <h3>Sample Football Teams Entry Form</h3>
+            <h3>Teams Entry Form</h3>
             <form action="add_team.php" method="post">
     <label for="name">Team Name:</label>
     <input type="text" id="name" name="name" required><br>

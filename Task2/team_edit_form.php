@@ -39,38 +39,55 @@ if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
     $stmt->execute();
     $result = $stmt->get_result();
     $team = $result->fetch_assoc();
-    ?>
-    <h2>Edit Team</h2>
-    <form action="team_edit_form.php?id=<?php echo $id; ?>" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($team['name']); ?>" required><br>
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Football Team</title>
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+    <header>
+        <h3>CSYM019 - Premier League Results</h3>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="report.php">Premier League Report</a></li>
+            <li><a href="add_team.php">Add New Football Team</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Edit Team</h2>
+        <form action="team_edit_form.php?id=<?php echo htmlspecialchars($id); ?>" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($team['name']); ?>" required><br>
 
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" value="<?php echo htmlspecialchars($team['city']); ?>" required><br>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" value="<?php echo htmlspecialchars($team['city']); ?>" required><br>
 
-        <label for="manager">Manager:</label>
-        <input type="text" id="manager" name="manager" value="<?php echo htmlspecialchars($team['manager']); ?>" required><br>
+            <label for="manager">Manager:</label>
+            <input type="text" id="manager" name="manager" value="<?php echo htmlspecialchars($team['manager']); ?>" required><br>
 
-        <label for="points">Points:</label>
-        <input type="number" id="points" name="points" value="<?php echo $team['points']; ?>" required><br>
+            <label for="points">Points:</label>
+            <input type="number" id="points" name="points" value="<?php echo $team['points']; ?>" required><br>
 
-        <label for="wins">Wins:</label>
-        <input type="number" id="wins" name="wins" value="<?php echo $team['wins']; ?>" required><br>
+            <label for="wins">Wins:</label>
+            <input type="number" id="wins" name="wins" value="<?php echo $team['wins']; ?>" required><br>
 
-        <label for="losses">Losses:</label>
-        <input type="number" id="losses" name="losses" value="<?php echo $team['losses']; ?>" required><br>
+            <label for="losses">Losses:</label>
+            <input type="number" id="losses" name="losses" value="<?php echo $team['losses']; ?>" required><br>
 
-        <label for="draws">Draws:</label>
-        <input type="number" id="draws" name="draws" value="<?php echo $team['draws']; ?>" required><br>
+            <label for="draws">Draws:</label>
+            <input type="number" id="draws" name="draws" value="<?php echo $team['draws']; ?>" required><br>
 
-        <label for="played_games">Played Games:</label>
-        <input type="number" id="played_games" name="played_games" value="<?php echo $team['played_games']; ?>" required><br>
+            <label for="played_games">Played Games:</label>
+            <input type="number" id="played_games" name="played_games" value="<?php echo $team['played_games']; ?>" required><br>
 
-        <label for="remaining_matches">Remaining Matches:</label>
-        <input type="number" id="remaining_matches" name="remaining_matches" value="<?php echo $team['remaining_matches']; ?>" required><br>
+            <label for="remaining_matches">Remaining Matches:</label>
+            <input type="number" id="remaining_matches" name="remaining_matches" value="<?php echo $team['remaining_matches']; ?>" required><br>
 
-        <input type="submit" value="Update Team">
-    </form>
+            <input type="submit" value="Update Team">
+        </form>
     <?php
     $stmt->close();
 } else {
