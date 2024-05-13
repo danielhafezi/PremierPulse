@@ -24,7 +24,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <li><a href="add_team.php">Add New Team</a></li>
             <li><a href="edit_team.php">Edit Existing Team</a></li>
             <li><a href="report.php">Report</a></li>
-            <li><a href="logout.php">Logout</a></li> <!-- Logout button moved here -->
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
     <main>

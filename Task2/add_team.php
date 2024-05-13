@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="report.php">Premier League Report</a></li>
                 <li><a href="edit_team.php">Edit Existing Team</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
         <main>

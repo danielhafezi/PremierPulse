@@ -55,6 +55,7 @@ if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
             <li><a href="dashboard.php">Dashboard</a></li>
             <li><a href="report.php">Report</a></li>
             <li><a href="add_team.php">Add New Football Team</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
     <main>
