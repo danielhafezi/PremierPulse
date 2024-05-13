@@ -108,16 +108,18 @@ h2 {
 }
     
     /* Table Styles */
-    table {
-        width: 80%;
-        margin: 0 auto !important; /* Force overriding other margin settings */
-    }
-    
-    th, td {
+table {
+    width: 60%;          /* Adjusted width from 80% to 60% */
+    margin: 20px auto;   /* Vertical margin added and horizontal auto for center alignment */
+    text-align: center;  /* Center alignment of text inside the table */
+}
+
+th, td {
     padding: 8px;
-    text-align: left;
+    text-align: center;  /* Ensure that header and data cells are also centered */
     border-bottom: 1px solid #ddd;
-    }
+}
+
     
     th {
     background-color: #f2f2f2;

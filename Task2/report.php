@@ -26,7 +26,8 @@ echo "<body>";
 echo "<header><h1>Team Performance Report</h1></header>";
 
 // Navigation
-echo "<nav><ul><li><a href='/home.php'>Home</a></li><li><a href='/teams.php'>Teams</a></li><li><a href='/contact.php'>Contact</a></li></ul></nav>";
+echo "<nav><ul><li><a href='add_team.php'>Add New Team</a></li><li><a href='edit_team.php'>Edit Existing Team</a></li></ul></nav>";
+
 
 // Main content
 echo "<main>";
