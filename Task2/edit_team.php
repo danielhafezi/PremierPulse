@@ -1,6 +1,14 @@
 <?php
 require 'includes/db.php';
-
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Teams</title>
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+<?php
 // Display all teams with edit and delete options
 $sql = "SELECT id, name, city, manager, points, wins, losses, draws, played_games, remaining_matches FROM teams";
 $result = $conn->query($sql);
@@ -20,3 +28,5 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
+</body>
+</html>

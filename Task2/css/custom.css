@@ -1,9 +1,18 @@
+html {
+    height: 100%;  /* Ensure html takes full height of the viewport */
+}
+
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
     background-color: #f2f2f2;
-    }
+    justify-content: center; /* Add this line to center the content vertically */
+}
+
     
     header {
     background-color: #e8ee4e;
@@ -39,11 +48,12 @@ body {
     }
     
     main {
-    padding: 20px;
-    background-color: #fff;
-    margin: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        flex: 1;  /* Allows the main content to expand and fill available space */
+        margin: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        background-color: #fff;
     }
     
     footer {
@@ -53,41 +63,44 @@ body {
     text-align: center;
     }
     
-    /* Form Styles */
-    form {
+form {
     max-width: 400px;
     margin: 0 auto;
-    }
-    
-    label {
+}
+
+label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    }
-    
-    input[type="text"],
-    input[type="number"],
-    input[type="password"] {
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"] {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    }
-    
-    input[type="submit"] {
-    background-color: #4CAF50;
+}
+
+input[type="submit"] {
+    width: 100%;                   /* Same width as other inputs */
+    background: linear-gradient(145deg, #22c55e, #16a34a);  /* Green gradient */
     color: white;
-    padding: 10px 20px;
+    padding: 8px;                 /* Padding similar to other input fields */
     border: none;
-    border-radius: 4px;
+    border-radius: 0px;           /* No rounded corners */
     cursor: pointer;
-    }
-    
-    input[type="submit"]:hover {
-    background-color: #45a049;
-    }
+    font-size: 16px;
+    text-align: center;           /* Centering the text */
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(145deg, #15803d, #166534);  /* Darker green gradient on hover */
+}
+
     
     /* Table Styles */
     table {
