@@ -232,10 +232,10 @@ $conn->close();
                     datasets: [{
                         data: [team.wins, team.losses, team.draws, team.remaining_matches],
                         backgroundColor: [
-                            'rgba(102, 255, 102, 0.6)',
-                            'rgba(255, 99, 132, 0.6)',
-                            'rgba(255, 206, 86, 0.6)',
-                            'rgba(54, 162, 235, 0.6)'
+                            'rgba(55, 126, 34)',
+                            'rgba(0, 0, 245)',
+                            'rgba(128, 128, 128)',
+                            'rgba(144, 148, 48)'
                         ],
                         borderColor: 'rgba(255, 255, 255, 1)',
                         borderWidth: 1
@@ -258,22 +258,22 @@ $conn->close();
                         {
                             label: 'Wins',
                             data: teams.map(team => team.wins),
-                            backgroundColor: 'rgba(75, 192, 192, 0.8)'
+                            backgroundColor: 'rgba(55, 126, 34)'
                         },
                         {
                             label: 'Losses',
                             data: teams.map(team => team.losses),
-                            backgroundColor: 'rgba(255, 99, 132, 0.8)'
+                            backgroundColor: 'rgba(0, 0, 245)'
                         },
                         {
                             label: 'Draws',
                             data: teams.map(team => team.draws),
-                            backgroundColor: 'rgba(255, 206, 86, 0.8)'
+                            backgroundColor: 'rgba(128, 128, 128)'
                         },
                         {
                             label: 'Remaining Matches',
                             data: teams.map(team => team.remaining_matches),
-                            backgroundColor: 'rgba(54, 162, 235, 0.8)'
+                            backgroundColor: 'rgba(144, 148, 48)'
                         }
                     ]
                 },
