@@ -1,8 +1,24 @@
 <?php
 require 'includes/db.php';
 
-$team_ids = $_POST['team_ids'] ?? [];
+// Load the JSON file
+$leagueDataJson = file_get_contents('league.json');
+$leagueData = json_decode($leagueDataJson, true);
 
+// Extract and sort fixtures by date
+usort($leagueData['fixtures'], function($a, $b) {
+    return strtotime($b['date']) - strtotime($a['date']);
+});
+
+// Group fixtures by team
+$teamGames = [];
+foreach ($leagueData['fixtures'] as $fixture) {
+    $teamGames[$fixture['home_team']][] = $fixture;
+    $teamGames[$fixture['away_team']][] = $fixture;
+}
+
+// Get selected team IDs from POST request
+$team_ids = $_POST['team_ids'] ?? [];
 if (count($team_ids) < 1) {
     echo "No teams were selected for the report. Please go back and select at least one team.";
     exit;
@@ -10,7 +26,6 @@ if (count($team_ids) < 1) {
 
 // Convert array of team IDs from the form into a format SQL can use
 $team_ids = implode(",", array_map('intval', $team_ids));
-
 $sql = "SELECT * FROM teams WHERE id IN ($team_ids)";
 $result = $conn->query($sql);
 
@@ -112,6 +127,12 @@ $conn->close();
             padding: 10px;
             text-align: center;
         }
+        
+        .last-games {
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
     </style>
 </head>
 <body>
@@ -134,6 +155,27 @@ $conn->close();
             <div class="team-section">
                 <h2><?php echo htmlspecialchars($team['name']); ?></h2>
                 <p>Manager: <?php echo htmlspecialchars($team['manager']); ?></p>
+                
+                <!-- Last 5 games section -->
+                <div class="last-games">
+                    <h3>Last 5 Games</h3>
+                    <ul>
+                        <?php
+                        $games = array_merge(
+                            $teamGames[$team['name']] ?? [],
+                            $teamGames[$team['city']] ?? []
+                        );
+                        $last5Games = array_slice($games, 0, 5);
+                        foreach ($last5Games as $game) {
+                            $isHome = $game['home_team'] == $team['name'];
+                            $opponent = $isHome ? $game['away_team'] : $game['home_team'];
+                            $score = $isHome ? "{$game['home_score']} - {$game['away_score']}" : "{$game['away_score']} - {$game['home_score']}";
+                            echo "<li>{$game['date']} vs {$opponent}: {$score}</li>";
+                        }
+                        ?>
+                    </ul>
+                </div>
+                
                 <div class="chart-container">
                     <canvas id="pieChart<?php echo $team['id']; ?>"></canvas>
                 </div>
@@ -155,22 +197,20 @@ $conn->close();
     </footer>
 
     <script>
-        teams = <?php echo json_encode($teams); ?>;
-
+        const teams = <?php echo json_encode($teams); ?>;
         teams.forEach(team => {
-            var ctxPie = document.getElementById('pieChart' + team.id).getContext('2d');
+            const ctxPie = document.getElementById('pieChart' + team.id).getContext('2d');
             new Chart(ctxPie, {
                 type: 'pie',
                 data: {
-                    labels: ['Wins', 'Losses', 'Draws', 'Remaining Matches', 'Played Games'],
+                    labels: ['Wins', 'Losses', 'Draws', 'Remaining Matches'],
                     datasets: [{
-                        data: [team.wins, team.losses, team.draws, team.remaining_matches, team.played_games],
+                        data: [team.wins, team.losses, team.draws, team.remaining_matches],
                         backgroundColor: [
                             'rgba(102, 255, 102, 0.6)',
                             'rgba(255, 99, 132, 0.6)',
                             'rgba(255, 206, 86, 0.6)',
-                            'rgba(54, 162, 235, 0.6)',
-                            'rgba(153, 102, 255, 0.6)'
+                            'rgba(54, 162, 235, 0.6)'
                         ],
                         borderColor: 'rgba(255, 255, 255, 1)',
                         borderWidth: 1
@@ -184,7 +224,7 @@ $conn->close();
         });
 
         if (teams.length > 1) {
-            var ctxBar = document.getElementById('barChart').getContext('2d');
+            const ctxBar = document.getElementById('barChart').getContext('2d');
             new Chart(ctxBar, {
                 type: 'bar',
                 data: {
