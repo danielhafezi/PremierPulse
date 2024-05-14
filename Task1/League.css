@@ -128,7 +128,7 @@ nav ul li a:hover {
 }
 
 #top-scorers-table td:nth-child(4) {
-  text-shadow: none; /* No shadow for the header */
+  text-shadow: none;
 }
 
 .form-header {
