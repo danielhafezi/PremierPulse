@@ -5,6 +5,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
+
 // Load the JSON file
 $leagueDataJson = file_get_contents('league.json');
 $leagueData = json_decode($leagueDataJson, true);
@@ -16,58 +17,18 @@ usort($leagueData['fixtures'], function($a, $b) {
 
 // Group fixtures by team
 $teamGames = [];
-$teamScorers = [];
-$cleanSheets = [];
 
 foreach ($leagueData['fixtures'] as $fixture) {
     $homeTeam = $fixture['home_team'];
     $awayTeam = $fixture['away_team'];
-    $homeScorers = $fixture['home_scorers'];
-    $awayScorers = $fixture['away_scorers'];
-    
+
     // Initialize if not already
     if (!isset($teamGames[$homeTeam])) $teamGames[$homeTeam] = [];
     if (!isset($teamGames[$awayTeam])) $teamGames[$awayTeam] = [];
-    if (!isset($teamScorers[$homeTeam])) $teamScorers[$homeTeam] = [];
-    if (!isset($teamScorers[$awayTeam])) $teamScorers[$awayTeam] = [];
-    if (!isset($cleanSheets[$homeTeam])) $cleanSheets[$homeTeam] = 0;
-    if (!isset($cleanSheets[$awayTeam])) $cleanSheets[$awayTeam] = 0;
 
     // Record games
     $teamGames[$homeTeam][] = $fixture;
     $teamGames[$awayTeam][] = $fixture;
-
-    // Record scorers
-    foreach ($homeScorers as $scorer) {
-        if (!isset($teamScorers[$homeTeam][$scorer])) {
-            $teamScorers[$homeTeam][$scorer] = 1;
-        } else {
-            $teamScorers[$homeTeam][$scorer]++;
-        }
-    }
-    
-    foreach ($awayScorers as $scorer) {
-        if (!isset($teamScorers[$awayTeam][$scorer])) {
-            $teamScorers[$awayTeam][$scorer] = 1;
-        } else {
-            $teamScorers[$awayTeam][$scorer]++;
-        }
-    }
-
-    // Record clean sheets
-    if ($fixture['away_score'] == 0) {
-        $cleanSheets[$homeTeam]++;
-    }
-    if ($fixture['home_score'] == 0) {
-        $cleanSheets[$awayTeam]++;
-    }
-}
-
-// Find top scorers for each team
-$topScorers = [];
-foreach ($teamScorers as $team => $scorers) {
-    arsort($scorers);
-    $topScorers[$team] = key($scorers);
 }
 
 // Get selected team IDs from POST request
@@ -120,8 +81,8 @@ $conn->close();
                         <h2><?php echo htmlspecialchars($team['name']); ?></h2>
                         <ul>
                             <li>Manager: <strong><?php echo htmlspecialchars($team['manager']); ?></strong></li>
-                            <li>Top Scorer: <strong><?php echo htmlspecialchars($topScorers[$team['name']] ?? 'N/A'); ?></strong></li>
-                            <li>Clean Sheets: <strong><?php echo $cleanSheets[$team['name']] ?? 0; ?></strong></li>
+                            <li>Top Scorer: <strong><?php echo htmlspecialchars($team['topscorer']); ?></strong></li>
+                            <li>Clean Sheets: <strong><?php echo $team['cleansheets']; ?></strong></li>
                         </ul>
                     </div>
                     <div class="chart-large">
@@ -132,10 +93,7 @@ $conn->close();
                     <h3>Last 5 Games</h3>
                     <ul>
                         <?php
-                        $games = array_merge(
-                            $teamGames[$team['name']] ?? [],
-                            $teamGames[$team['city']] ?? []
-                        );
+                        $games = $teamGames[$team['name']] ?? [];
                         $last5Games = array_slice($games, 0, 5);
                         foreach ($last5Games as $game) {
                             $isHome = $game['home_team'] == $team['name'];
@@ -234,6 +192,3 @@ $conn->close();
     </script>
 </body>
 </html>
-
-
-

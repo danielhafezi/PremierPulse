@@ -48,9 +48,14 @@ echo "<tr>
         <th>City</th>
         <th>Manager</th>
         <th>Points</th>
+        <th>Top Scorer</th>
         <th>Wins</th>
         <th>Losses</th>
         <th>Draws</th>
+        <th>Goals For</th>
+        <th>Goals Against</th>
+        <th>GD</th>
+        <th>Clean Sheets</th>
         <th>Played Games</th>
         <th>Remaining Matches</th>
       </tr>";
@@ -67,9 +72,14 @@ if (!$result) {
         echo "<td>" . htmlspecialchars($row['city']) . "</td>";
         echo "<td>" . htmlspecialchars($row['manager']) . "</td>";
         echo "<td>" . $row['points'] . "</td>";
+        echo "<td>" . htmlspecialchars($row['topscorer']) . "</td>";
         echo "<td>" . $row['wins'] . "</td>";
         echo "<td>" . $row['losses'] . "</td>";
         echo "<td>" . $row['draws'] . "</td>";
+        echo "<td>" . $row['goals_for'] . "</td>";
+        echo "<td>" . $row['goals_against'] . "</td>";
+        echo "<td>" . $row['gd'] . "</td>";
+        echo "<td>" . $row['cleansheets'] . "</td>";
         echo "<td>" . $row['played_games'] . "</td>";
         echo "<td>" . $row['remaining_matches'] . "</td>";
         echo "</tr>";

@@ -20,11 +20,16 @@ if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
         $draws = $_POST['draws'];
         $played_games = $_POST['played_games'];
         $remaining_matches = $_POST['remaining_matches'];
+        $goals_for = $_POST['goals_for'];
+        $goals_against = $_POST['goals_against'];
+        $gd = $_POST['gd'];
+        $topscorer = $_POST['topscorer'];
+        $cleansheets = $_POST['cleansheets'];
 
         // Update database
-        $sql = "UPDATE teams SET name=?, city=?, manager=?, points=?, wins=?, losses=?, draws=?, played_games=?, remaining_matches=? WHERE id=?";
+        $sql = "UPDATE teams SET name=?, city=?, manager=?, points=?, wins=?, losses=?, draws=?, played_games=?, remaining_matches=?, goals_for=?, goals_against=?, gd=?, topscorer=?, cleansheets=? WHERE id=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssiissssi", $name, $city, $manager, $points, $wins, $losses, $draws, $played_games, $remaining_matches, $id);
+        $stmt->bind_param("sssiiiiiisiisii", $name, $city, $manager, $points, $wins, $losses, $draws, $played_games, $remaining_matches, $goals_for, $goals_against, $gd, $topscorer, $cleansheets, $id);
 
         if ($stmt->execute()) {
             echo "<p>Team updated successfully.</p>";
@@ -91,6 +96,21 @@ if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
 
             <label for="remaining_matches">Remaining Matches:</label>
             <input type="number" id="remaining_matches" name="remaining_matches" value="<?php echo $team['remaining_matches']; ?>" required><br>
+            
+            <label for="goals_for">Goals For:</label>
+            <input type="number" id="goals_for" name="goals_for" value="<?php echo $team['goals_for']; ?>" required><br>
+
+            <label for="goals_against">Goals Against:</label>
+            <input type="number" id="goals_against" name="goals_against" value="<?php echo $team['goals_against']; ?>" required><br>
+
+            <label for="gd">Goal Difference (GD):</label>
+            <input type="number" id="gd" name="gd" value="<?php echo $team['gd']; ?>" required><br>
+
+            <label for="topscorer">Top Scorer:</label>
+            <input type="text" id="topscorer" name="topscorer" value="<?php echo htmlspecialchars($team['topscorer']); ?>" required><br>
+
+            <label for="cleansheets">Clean Sheets:</label>
+            <input type="number" id="cleansheets" name="cleansheets" value="<?php echo $team['cleansheets']; ?>" required><br>
 
             <input type="submit" value="Update Team">
         </form>
@@ -101,3 +121,9 @@ if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
 }
 $conn->close();
 ?>
+</main>
+<footer>
+    Premier League Management System © 2024
+</footer>
+</body>
+</html>
