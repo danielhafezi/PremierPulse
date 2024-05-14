@@ -214,7 +214,7 @@ input[type="submit"]:active {
 
 h2 {
     margin: 0;
-    margin-bottom: 30px;
+    margin-bottom: 50px; /* Increase margin-bottom for more space */
 }
 
 table {
@@ -230,6 +230,17 @@ th, td {
 
 th {
     background-color: #f2f2f2;
+    position: relative;
+}
+
+th.sortable span.sort-icons::before {
+    content: '⇅';
+    position: absolute;
+    top: -20px; /* Adjust top value as needed */
+    left: 50%; /* Center the symbols horizontally */
+    transform: translateX(-50%); /* Adjust alignment */
+    font-size: 16px;
+    cursor: pointer;
 }
 
 tr:nth-child(even) {
@@ -251,9 +262,9 @@ tr:hover {
 }
 
 .report-table {
-    width: 100%; /* Update width to 100% */
-    max-width: 1200px; /* Optional: set a max-width if needed */
-    margin: 20px auto; 
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
     border-collapse: collapse;
 }
 
