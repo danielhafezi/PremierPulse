@@ -12,9 +12,58 @@ usort($leagueData['fixtures'], function($a, $b) {
 
 // Group fixtures by team
 $teamGames = [];
+$teamScorers = [];
+$cleanSheets = [];
+
 foreach ($leagueData['fixtures'] as $fixture) {
-    $teamGames[$fixture['home_team']][] = $fixture;
-    $teamGames[$fixture['away_team']][] = $fixture;
+    $homeTeam = $fixture['home_team'];
+    $awayTeam = $fixture['away_team'];
+    $homeScorers = $fixture['home_scorers'];
+    $awayScorers = $fixture['away_scorers'];
+    
+    // Initialize if not already
+    if (!isset($teamGames[$homeTeam])) $teamGames[$homeTeam] = [];
+    if (!isset($teamGames[$awayTeam])) $teamGames[$awayTeam] = [];
+    if (!isset($teamScorers[$homeTeam])) $teamScorers[$homeTeam] = [];
+    if (!isset($teamScorers[$awayTeam])) $teamScorers[$awayTeam] = [];
+    if (!isset($cleanSheets[$homeTeam])) $cleanSheets[$homeTeam] = 0;
+    if (!isset($cleanSheets[$awayTeam])) $cleanSheets[$awayTeam] = 0;
+
+    // Record games
+    $teamGames[$homeTeam][] = $fixture;
+    $teamGames[$awayTeam][] = $fixture;
+
+    // Record scorers
+    foreach ($homeScorers as $scorer) {
+        if (!isset($teamScorers[$homeTeam][$scorer])) {
+            $teamScorers[$homeTeam][$scorer] = 1;
+        } else {
+            $teamScorers[$homeTeam][$scorer]++;
+        }
+    }
+    
+    foreach ($awayScorers as $scorer) {
+        if (!isset($teamScorers[$awayTeam][$scorer])) {
+            $teamScorers[$awayTeam][$scorer] = 1;
+        } else {
+            $teamScorers[$awayTeam][$scorer]++;
+        }
+    }
+
+    // Record clean sheets
+    if ($fixture['away_score'] == 0) {
+        $cleanSheets[$homeTeam]++;
+    }
+    if ($fixture['home_score'] == 0) {
+        $cleanSheets[$awayTeam]++;
+    }
+}
+
+// Find top scorers for each team
+$topScorers = [];
+foreach ($teamScorers as $team => $scorers) {
+    arsort($scorers);
+    $topScorers[$team] = key($scorers);
 }
 
 // Get selected team IDs from POST request
@@ -44,120 +93,6 @@ $conn->close();
     <title>Football Teams Report</title>
     <link rel="stylesheet" href="css/custom.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #e8ee4e;
-            color: #000000;
-            padding: 20px;
-            text-align: center;
-        }
-
-        nav {
-            background-color: #310f38;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-        }
-
-        main {
-            flex: 1;
-            padding: 20px;
-        }
-
-        .team-section {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .team-section h2 {
-            margin-bottom: 10px;
-        }
-
-        .chart-container {
-            width: 100%;
-            height: 400px;
-            margin-top: 20px;
-        }
-
-        .comparative-section {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .comparative-section h2 {
-            margin-bottom: 20px;
-        }
-
-        footer {
-            background-color: #310f38;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        
-        .last-games {
-            margin-top: 15px;
-            font-size: 0.9em;
-        }
-
-        .game-result {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            line-height: 20px;
-            text-align: center;
-            margin-right: 4px;
-            border-radius: 4px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .game-result.W {
-            background: linear-gradient(to bottom right, green, darkgreen);
-        }
-
-        .game-result.L {
-            background: linear-gradient(to bottom right, blue, darkblue);
-        }
-
-        .game-result.D {
-            background: linear-gradient(to bottom right, gray, darkgray);
-        }
-        
-    </style>
 </head>
 <body>
     <header>
@@ -177,10 +112,19 @@ $conn->close();
     <main>
         <?php foreach ($teams as $team): ?>
             <div class="team-section">
-                <h2><?php echo htmlspecialchars($team['name']); ?></h2>
-                <p>Manager: <?php echo htmlspecialchars($team['manager']); ?></p>
-                
-                <!-- Last 5 games section -->
+                <div class="team-header">
+                    <div class="team-info">
+                        <h2><?php echo htmlspecialchars($team['name']); ?></h2>
+                        <ul>
+                            <li>Manager: <strong><?php echo htmlspecialchars($team['manager']); ?></strong></li>
+                            <li>Top Scorer: <strong><?php echo htmlspecialchars($topScorers[$team['name']] ?? 'N/A'); ?></strong></li>
+                            <li>Clean Sheets: <strong><?php echo $cleanSheets[$team['name']] ?? 0; ?></strong></li>
+                        </ul>
+                    </div>
+                    <div class="chart-large">
+                        <canvas id="pieChart<?php echo $team['id']; ?>"></canvas>
+                    </div>
+                </div>
                 <div class="last-games">
                     <h3>Last 5 Games</h3>
                     <ul>
@@ -199,10 +143,6 @@ $conn->close();
                         }
                         ?>
                     </ul>
-                </div>
-                
-                <div class="chart-container">
-                    <canvas id="pieChart<?php echo $team['id']; ?>"></canvas>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -291,3 +231,6 @@ $conn->close();
     </script>
 </body>
 </html>
+
+
+

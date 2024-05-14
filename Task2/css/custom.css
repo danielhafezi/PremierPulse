@@ -1,105 +1,173 @@
 html {
-    height: 100%;  /* Ensure html takes full height of the viewport */
+    height: 100%;
 }
 
 body {
-    display: flex;         /* Use flexbox to allow 'flexible' layouts */
-    flex-direction: column; /* Stack elements vertically */
-    min-height: 100vh;      /* Minimum height is full viewport */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;  
+    background-color: #f2f2f2;
 }
-    /* Add this block to style the welcome message */
+
 .welcome-message {
     font-size: 1.2em;
     margin-bottom: 20px;
     text-align: center;
-    color: #000; /* Adjust the color if needed */
+    color: #000;
 }
 
-    header {
+header {
     background-color: #e8ee4e;
     color: #000000;
     padding: 20px;
     text-align: center;
-    }
-    
-    h1, h2, h3 {
+}
+
+h1, h2, h3 {
     margin: 0;
-    }
-    
-    nav {
-        background-color: #310f38;
-        padding: 10px;
-        text-align: center;
-    }
-    
-    nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-    
-    nav ul li {
-        display: inline;
-        margin-right: 30px;
-    }
-    
-    nav ul li a {
-        text-decoration: none;
-        color: #fff;
-        position: relative; /* Needed for the indicator positioning */
-    }
-    
-    nav ul li a.active,
-    nav ul li a:hover {
-        color: #ffffff; /* Text color for the active and hover states */
-    }
-    
-    nav ul li a.active::after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 7px; /* Indicator height */
-        background-color: #e8ee4e; /* Yellow color for the indicator */
-        bottom: -11px; /* Positioning below text */
-        left: 0;
-    }
-    
-    main {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* This will help in making sure everything in main is centered, including your table */
-        justify-content: center;
-        flex: 1;  /* Allows the main content to expand and fill available space */
-        margin: 20px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        background-color: #fff;
-    }
-    main h3 {
-        margin-bottom: 30px; /* You can adjust this value as needed */
-    }
-    footer {
+}
+
+nav {
+    background-color: #310f38;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: #ffffff;
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 7px;
+    background-color: #e8ee4e;
+    bottom: -11px;
+    left: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+/* Team Section */
+.team-section {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.team-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.team-info {
+    flex: 1;
+    padding-right: 50px; /* Add padding to `team-info` to move chart left */
+}
+
+.chart-large {
+    width: 300px;  /* Increase width for larger charts */
+    height: 300px; /* Increase height for larger charts */
+    right: 20px;
+} 
+
+.last-games {
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.game-result {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    margin-right: 4px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+}
+
+.game-result.W {
+    background: linear-gradient(to bottom right, green, darkgreen);
+}
+
+.game-result.L {
+    background: linear-gradient(to bottom right, blue, darkblue);
+}
+
+.game-result.D {
+    background: linear-gradient(to bottom right, gray, darkgray);
+}
+
+.comparative-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comparative-section h2 {
+    margin-bottom: 20px;
+}
+
+footer {
     background-color: #310f38;
     color: #fff;
     padding: 10px;
     text-align: center;
-    }
-    
-    label {
-        display: block;
-        margin-bottom: 15px; /* Increase this value, originally was 5px */
-        font-weight: bold;
-    }
+}
 
+.chart-container {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
+}
+
+/* Form */
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     font-weight: bold;
 }
 
@@ -115,22 +183,22 @@ input[type="password"] {
 }
 
 input[type="submit"] {
-    width: 500px;                  /* Ensure the same width as other inputs */
-    height: 40px;                  /* Adjust the height to match new specifications */
+    width: 500px;
+    height: 40px;
     color: #fff;
-    padding: 5px 10px;             /* Padding similar to your original design */
+    padding: 5px 10px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
     outline: none;
-    border-radius: 5px;            /* Same border-radius for consistency */
+    border-radius: 5px;
     border: none;
     background: #87ed80;
     box-shadow: 0 5px #57cc99;
-    text-align: center;            /* Center text text */
-    font-size: 16px;               /* Same font size as other inputs */
+    text-align: center;
+    font-size: 16px;
 }
 
 input[type="submit"]:hover {
@@ -145,41 +213,46 @@ input[type="submit"]:active {
 
 h2 {
     margin: 0;
-    margin-bottom: 30px; /* Increased space between the h2 element and what follows */
+    margin-bottom: 30px;
 }
-    
-    /* Table Styles */
-    table {
-        width: 80%; /* adjust to your preference, initially 100% */
-        margin: 0 auto; /* ensures table centering */
-    }
-    
-    th, td {
-    padding: 8px;
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-    }
-    
-    th {
+}
+
+th {
     background-color: #f2f2f2;
-    }
-    
-    /* Error Styles */
-    .error {
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e9e9e9;
+}
+
+.error {
     color: red;
     margin-bottom: 10px;
-    }
-    
-    /* Success Styles */
-    .success {
+}
+
+.success {
     color: green;
     margin-bottom: 10px;
+}
 
-    }
 .report-table {
     width: 90%;
     max-width: 800px;
-    margin: 20px auto; /* Centers the table horizontally */
+    margin: 20px auto;
     border-collapse: collapse;
 }
 
@@ -187,4 +260,4 @@ h2 {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
-}
+}  
