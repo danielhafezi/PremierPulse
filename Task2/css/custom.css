@@ -250,9 +250,9 @@ tr:hover {
 }
 
 .report-table {
-    width: 90%;
-    max-width: 800px;
-    margin: 20px auto;
+    width: 100%; /* Update width to 100% */
+    max-width: 1200px; /* Optional: set a max-width if needed */
+    margin: 20px auto; 
     border-collapse: collapse;
 }
 
@@ -260,4 +260,4 @@ tr:hover {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
-}  
+}

@@ -9,7 +9,6 @@ ini_set('display_errors', 1);
 
 require 'includes/db.php';
 
-// Start HTML output
 echo "<!DOCTYPE html>";
 echo "<html>";
 echo "<head>";
@@ -19,7 +18,7 @@ echo "<style>";
 echo "body { text-align: center; }"; // Ensure body content is centered
 echo "main { display: flex; flex-direction: column; align-items: center; }"; // Using flexbox to center children of <main>
 echo "h2 { margin-bottom: 20px; }"; // Adding more space below the header
-echo "table { width: 90%; max-width: 800px; margin: 0 auto 20px; }"; // Limit table width and center it
+echo "table { width: 100%; margin: 0 auto 20px; }"; // Update width to 100%
 echo "table, th, td { border: 1px solid #ddd; border-collapse: collapse; }"; // Stylish table borders
 echo "th, td { padding: 8px; text-align: center; }"; // Central alignment and padding in table cells
 echo "input[type='submit'] { margin-top: 20px; }"; // Space above the submit button
@@ -42,7 +41,7 @@ echo "<nav><ul>
 echo "<main>";
 echo "<h2>Premier League Table</h2>"; // Title with margin bottom for space
 echo "<form action='generate_report.php' method='post'>";
-echo "<table class='report-table' style='margin: 0 auto; width: 90%; max-width: 800px; border-collapse: collapse;'>";
+echo "<table class='report-table' style='width: 100%; margin: 0 auto 20px; border-collapse: collapse;'>";
 echo "<tr>
         <th>Select</th>
         <th>Club</th>
