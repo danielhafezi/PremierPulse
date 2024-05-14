@@ -17,7 +17,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <body>
     <header>
         <h1>Welcome to the Premier League Management System</h1>
-        <p>Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?>!</p>
     </header>
     <nav>
         <ul>
@@ -29,6 +28,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </ul>
     </nav>
     <main>
+        <p class="welcome-message">Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?>!</p>
         <h2>Dashboard</h2>
         <p>Select an option from the menu to get started.</p>
     </main>
