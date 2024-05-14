@@ -133,6 +133,30 @@ $conn->close();
             font-size: 0.9em;
         }
 
+        .game-result {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            margin-right: 4px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .game-result.W {
+            background: linear-gradient(to bottom right, green, darkgreen);
+        }
+
+        .game-result.L {
+            background: linear-gradient(to bottom right, blue, darkblue);
+        }
+
+        .game-result.D {
+            background: linear-gradient(to bottom right, gray, darkgray);
+        }
+        
     </style>
 </head>
 <body>
@@ -170,7 +194,8 @@ $conn->close();
                             $isHome = $game['home_team'] == $team['name'];
                             $opponent = $isHome ? $game['away_team'] : $game['home_team'];
                             $score = $isHome ? "{$game['home_score']} - {$game['away_score']}" : "{$game['away_score']} - {$game['home_score']}";
-                            echo "<li>{$game['date']} vs {$opponent}: {$score}</li>";
+                            $result = $isHome ? ($game['home_score'] > $game['away_score'] ? 'W' : ($game['home_score'] < $game['away_score'] ? 'L' : 'D')) : ($game['away_score'] > $game['home_score'] ? 'W' : ($game['away_score'] < $game['home_score'] ? 'L' : 'D'));
+                            echo "<li><span class='game-result $result'>$result</span>{$game['date']} vs {$opponent}: {$score}</li>";
                         }
                         ?>
                     </ul>
