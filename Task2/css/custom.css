@@ -24,25 +24,42 @@ body {
     }
     
     nav {
-    background-color: #310f38;
-    padding: 10px;
-    text-align: center;
+        background-color: #310f38;
+        padding: 10px;
+        text-align: center;
     }
     
     nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
     }
     
     nav ul li {
-    display: inline;
-    margin-right: 10px;
+        display: inline;
+        margin-right: 10px;
     }
     
     nav ul li a {
-    text-decoration: none;
-    color: #fff;
+        text-decoration: none;
+        color: #fff;
+        position: relative; /* Needed for the indicator positioning */
+    }
+    
+    nav ul li a.active,
+    nav ul li a:hover {
+        color: #e8ee4e; /* Text color for the active and hover states */
+    }
+    
+    nav ul li a.active::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 3px; /* Indicator height */
+        background-color: #e8ee4e; /* Yellow color for the indicator */
+        bottom: -5px; /* Positioning below text */
+        left: 0;
     }
     
     main {

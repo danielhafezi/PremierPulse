@@ -28,8 +28,9 @@ echo "<header><h1>Team Performance Report</h1></header>";
 // Navigation
 echo "<nav><ul>
       <li><a href='dashboard.php'>Dashboard</a></li>
-      <li><a href='add_team.php'>Add New Team</a></li>
-      <li><a href='edit_team.php'>Edit Existing Team</a></li>
+      <li><a href='add_team.php'>Add Team</a></li>
+      <li><a href='edit_team.php'>Edit Team</a></li>
+      <li><a href='report.php' class='active'>Report</a></li>  
       <li><a href='logout.php'>Logout</a></li>
       </ul></nav>";
 
