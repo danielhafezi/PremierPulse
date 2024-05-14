@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -27,10 +32,9 @@ echo "<header><h1>Team Performance Report</h1></header>";
 
 // Navigation
 echo "<nav><ul>
-      <li><a href='dashboard.php'>Dashboard</a></li>
+      <li><a href='report.php' class='active'>Report</a></li>  
       <li><a href='add_team.php'>Add Team</a></li>
       <li><a href='edit_team.php'>Edit Team</a></li>
-      <li><a href='report.php' class='active'>Report</a></li>  
       <li><a href='logout.php'>Logout</a></li>
       </ul></nav>";
 

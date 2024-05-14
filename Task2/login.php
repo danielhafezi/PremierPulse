@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;                            
-                            header("location: dashboard.php");
+                            header("location: report.php");
                         } else {
                             $password_err = "The password you entered was not valid.";
                         }

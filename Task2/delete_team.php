@@ -1,6 +1,10 @@
 <?php
 require 'includes/db.php';
-
+session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
 // Check if an 'id' is present in the URL query string
 if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
     $id = $_GET['id'];

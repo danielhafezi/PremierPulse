@@ -1,6 +1,10 @@
 <?php
 require 'includes/db.php';
-
+session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST['name']);
     $city = trim($_POST['city']);
@@ -40,11 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </header>
         <nav>
             <ul>
-               <li><a href="dashboard.php">Dashboard</a></li>
+               <li><a href="report.php">Report</a></li>
                <li><a href="add_team.php" class="active">Add Team</a></li>  
                <li><a href="edit_team.php">Edit Team</a></li>
-                <li><a href="report.php">Report</a></li>
-                <li><a href="logout.php">Logout</a></li>
+               <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
         <main>

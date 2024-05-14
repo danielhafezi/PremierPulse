@@ -1,6 +1,10 @@
 <?php
 require 'includes/db.php';
-
+session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
 // Load the JSON file
 $leagueDataJson = file_get_contents('league.json');
 $leagueData = json_decode($leagueDataJson, true);
@@ -101,10 +105,9 @@ $conn->close();
 
     <nav>
         <ul>
-            <li><a href="dashboard.php">Dashboard</a></li>
+            <li><a href="report.php">Report</a></li>
             <li><a href="add_team.php">Add Team</a></li>
             <li><a href="edit_team.php">Edit Team</a></li>
-            <li><a href="report.php">Report</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
