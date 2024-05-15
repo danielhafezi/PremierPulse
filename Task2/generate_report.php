@@ -57,6 +57,88 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Football Teams Report</title>
     <link rel="stylesheet" href="css/custom.css">
+    <style>
+        .team-report .team-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-report .team-header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .team-report .team-info,
+        .team-report .chart-large {
+            width: 48%;
+        }
+
+        .team-report .team-info {
+            margin-bottom: 20px;
+        }
+
+        .team-report .chart-large {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .team-report .report-table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        .team-report .report-table th, .team-report .report-table td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .team-report .last-games {
+            width: 100%;
+            font-size: 0.9em;
+        }
+
+        .team-report .last-games ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .team-report .last-games li {
+            line-height: 1.8;
+        }
+
+        .team-report .game-result {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            margin-right: 4px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .team-report .game-result.W {
+            background: linear-gradient(to bottom right, green, darkgreen);
+        }
+
+        .team-report .game-result.L {
+            background: linear-gradient(to bottom right, blue, darkblue);
+        }
+
+        .team-report .game-result.D {
+            background: linear-gradient(to bottom right, gray, darkgray);
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -73,22 +155,49 @@ $conn->close();
         </ul>
     </nav>
 
-    <main>
+    <main class="team-report">
         <?php foreach ($teams as $team): ?>
             <div class="team-section">
-                <div class="team-header">
-                    <div class="team-info">
-                        <h2><?php echo htmlspecialchars($team['name']); ?></h2>
-                        <ul>
-                            <li>Manager: <strong><?php echo htmlspecialchars($team['manager']); ?></strong></li>
-                            <li>Top Scorer: <strong><?php echo htmlspecialchars($team['topscorer']); ?></strong></li>
-                            <li>Clean Sheets: <strong><?php echo $team['cleansheets']; ?></strong></li>
-                        </ul>
-                    </div>
-                    <div class="chart-large">
-                        <canvas id="pieChart<?php echo $team['id']; ?>"></canvas>
-                    </div>
+                <div class="team-info">
+                    <h2><?php echo htmlspecialchars($team['name']); ?></h2>
+                    <p>Manager: <strong><?php echo htmlspecialchars($team['manager']); ?></strong></p>
+                    <p>Top Scorer: <strong><?php echo htmlspecialchars($team['topscorer']); ?></strong></p>
                 </div>
+                <div class="chart-large">
+                    <canvas id="pieChart<?php echo $team['id']; ?>"></canvas>
+                </div>
+                
+                <table class="report-table">
+                    <thead>
+                        <tr>
+                            <th>Points</th>
+                            <th>Wins</th>
+                            <th>Losses</th>
+                            <th>Draws</th>
+                            <th>Goals For</th>
+                            <th>Goals Against</th>
+                            <th>GD</th>
+                            <th>Clean Sheets</th>
+                            <th>Played Games</th>
+                            <th>Remaining Matches</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><?php echo $team['points']; ?></td>
+                            <td><?php echo $team['wins']; ?></td>
+                            <td><?php echo $team['losses']; ?></td>
+                            <td><?php echo $team['draws']; ?></td>
+                            <td><?php echo $team['goals_for']; ?></td>
+                            <td><?php echo $team['goals_against']; ?></td>
+                            <td><?php echo $team['gd']; ?></td>
+                            <td><?php echo $team['cleansheets']; ?></td>
+                            <td><?php echo $team['played_games']; ?></td>
+                            <td><?php echo $team['remaining_matches']; ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <div class="last-games">
                     <h3>Last 5 Games</h3>
                     <ul>
