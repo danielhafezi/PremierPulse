@@ -1,4 +1,3 @@
-// Utility to fetch data and handle errors
 async function fetchData(url) {
   try {
     const response = await fetch(url);
@@ -9,7 +8,6 @@ async function fetchData(url) {
   }
 }
 
-// Generate form string for the last 6 games
 function getFormString(teamName, fixtures) {
   const recentFixtures = fixtures
     .filter(fixture => (fixture.home_team === teamName || fixture.away_team === teamName) && fixture.home_score !== undefined)
@@ -27,7 +25,6 @@ function getFormString(teamName, fixtures) {
   return formString;
 }
 
-// Calculate league statistics
 function calculateLeagueStatistics(fixtures) {
   const standings = {};
 
@@ -76,7 +73,6 @@ function calculateLeagueStatistics(fixtures) {
   );
 }
 
-// Calculate top scorers
 function calculateTopScorers(fixtures) {
   const scorersMap = {};
 
@@ -93,11 +89,10 @@ function calculateTopScorers(fixtures) {
 
   return Object.entries(scorersMap)
     .sort(([, goalsA], [, goalsB]) => goalsB - goalsA)
-    .slice(0, 20) // Limit to top 20 scorers
+    .slice(0, 20)
     .map(([name, goals], index) => ({ name, goals, rank: index + 1 }));
 }
 
-// Determine team for a given player
 function determineTeam(playerName, fixtures) {
   for (const { home_team, away_team, home_scorers = [], away_scorers = [] } of fixtures) {
     if (home_scorers.includes(playerName)) return home_team;
@@ -106,7 +101,6 @@ function determineTeam(playerName, fixtures) {
   return 'Unknown';
 }
 
-// Update league table in the DOM
 function updateLeagueTable(data) {
   const leagueTableBody = document.querySelector('#league-table');
   if (leagueTableBody) {
@@ -133,7 +127,6 @@ function updateLeagueTable(data) {
   }
 }
 
-// Update top scorers table in the DOM
 function updateTopScorersTable(data) {
   const topScorersTableBody = document.getElementById('top-scorers-table');
   if (topScorersTableBody) {
@@ -151,14 +144,13 @@ function updateTopScorersTable(data) {
   }
 }
 
-// Periodically fetch and update data
 function updateData() {
   fetchData('League.json').then(data => {
     if (data) {
       updateLeagueTable(data);
       updateTopScorersTable(data);
     }
-    setTimeout(updateData, 3000); // Update every 3 seconds
+    setTimeout(updateData, 3000); 
   });
 }
 
