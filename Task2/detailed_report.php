@@ -6,39 +6,32 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-// Load the JSON file
 $leagueDataJson = file_get_contents('league.json');
 $leagueData = json_decode($leagueDataJson, true);
 
-// Extract and sort fixtures by date
 usort($leagueData['fixtures'], function($a, $b) {
     return strtotime($b['date']) - strtotime($a['date']);
 });
 
-// Group fixtures by team
 $teamGames = [];
 
 foreach ($leagueData['fixtures'] as $fixture) {
     $homeTeam = $fixture['home_team'];
     $awayTeam = $fixture['away_team'];
 
-    // Initialize if not already
     if (!isset($teamGames[$homeTeam])) $teamGames[$homeTeam] = [];
     if (!isset($teamGames[$awayTeam])) $teamGames[$awayTeam] = [];
 
-    // Record games
     $teamGames[$homeTeam][] = $fixture;
     $teamGames[$awayTeam][] = $fixture;
 }
 
-// Get selected team IDs from POST request
 $team_ids = $_POST['team_ids'] ?? [];
 if (count($team_ids) < 1) {
     echo "No teams were selected for the report. Please go back and select at least one team.";
     exit;
 }
 
-// Convert array of team IDs from the form into a format SQL can use
 $team_ids = implode(",", array_map('intval', $team_ids));
 $sql = "SELECT * FROM teams WHERE id IN ($team_ids)";
 $result = $conn->query($sql);

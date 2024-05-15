@@ -5,11 +5,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
-// Check if an ID was passed and it's a valid number
+
 if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
     $id = $_GET['id'];
 
-    // Handle the form submission
+ 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $name = $_POST['name'];
         $city = $_POST['city'];
@@ -26,14 +26,14 @@ if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
         $topscorer = $_POST['topscorer'];
         $cleansheets = $_POST['cleansheets'];
 
-        // Update database
+     
         $sql = "UPDATE teams SET name=?, city=?, manager=?, points=?, wins=?, losses=?, draws=?, played_games=?, remaining_matches=?, goals_for=?, goals_against=?, gd=?, topscorer=?, cleansheets=? WHERE id=?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssiiiiiisiisii", $name, $city, $manager, $points, $wins, $losses, $draws, $played_games, $remaining_matches, $goals_for, $goals_against, $gd, $topscorer, $cleansheets, $id);
 
         if ($stmt->execute()) {
             echo "<p>Team updated successfully.</p>";
-            header("location: edit_team.php"); // Redirect to the list page
+            header("location: edit_team.php"); 
             exit();
         } else {
             echo "<p>Error: " . $stmt->error . "</p>";
@@ -41,7 +41,7 @@ if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
         $stmt->close();
     }
 
-    // Fetch current data of the team
+   
     $sql = "SELECT * FROM teams WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);

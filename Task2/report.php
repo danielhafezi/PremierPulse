@@ -65,10 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
 echo "</head>";
 echo "<body>";
 
-// Header
 echo "<header><h1>League Statistics Report</h1></header>";
 
-// Navigation
 echo "<nav><ul>
       <li><a href='report.php' class='active'>Report</a></li>  
       <li><a href='add_team.php'>Add Team</a></li>
@@ -76,7 +74,6 @@ echo "<nav><ul>
       <li><a href='logout.php'>Logout</a></li>
       </ul></nav>";
 
-// Main content
 echo "<main>";
 echo "<form action='detailed_report.php' method='post'>";
 echo "<table class='report-table' style='width: 100%; margin: 0 auto 20px; border-collapse: collapse;'>";
@@ -135,7 +132,6 @@ echo "</main>";
 
 $conn->close();
 
-// Footer
 echo "<footer><p>Premier League Management System © 2024</p></footer>";
 
 echo "</body>";

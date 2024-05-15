@@ -81,7 +81,6 @@ main {
     background-color: #f2f2f2;
 }
 
-/* Team Section */
 .team-section {
     width: 100%;
     max-width: 800px;
@@ -100,12 +99,12 @@ main {
 
 .team-info {
     flex: 1;
-    padding-right: 50px; /* Add padding to `team-info` to move chart left */
+    padding-right: 50px; 
 }
 
 .chart-large {
-    width: 300px;  /* Increase width for larger charts */
-    height: 300px; /* Increase height for larger charts */
+    width: 300px;
+    height: 300px;
     right: 20px;
 } 
 
@@ -165,7 +164,6 @@ footer {
     margin-top: 20px;
 }
 
-/* Form */
 label {
     display: block;
     margin-bottom: 15px;
@@ -214,7 +212,7 @@ input[type="submit"]:active {
 
 h2 {
     margin: 0;
-    margin-bottom: 50px; /* Increase margin-bottom for more space */
+    margin-bottom: 50px; 
 }
 
 table {
@@ -236,9 +234,9 @@ th {
 th.sortable span.sort-icons::before {
     content: '⇅';
     position: absolute;
-    top: -20px; /* Adjust top value as needed */
-    left: 50%; /* Center the symbols horizontally */
-    transform: translateX(-50%); /* Adjust alignment */
+    top: -20px;
+    left: 50%; 
+    transform: translateX(-50%);
     font-size: 16px;
     cursor: pointer;
 }
