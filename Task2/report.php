@@ -66,7 +66,7 @@ echo "</head>";
 echo "<body>";
 
 // Header
-echo "<header><h1>Team Performance Report</h1></header>";
+echo "<header><h1>League Statistics Report</h1></header>";
 
 // Navigation
 echo "<nav><ul>
@@ -78,7 +78,7 @@ echo "<nav><ul>
 
 // Main content
 echo "<main>";
-echo "<form action='generate_report.php' method='post'>";
+echo "<form action='detailed_report.php' method='post'>";
 echo "<table class='report-table' style='width: 100%; margin: 0 auto 20px; border-collapse: collapse;'>";
 echo "<thead>";
 echo "<tr>

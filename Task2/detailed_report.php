@@ -143,7 +143,7 @@ $conn->close();
 </head>
 <body>
     <header>
-        <h1>Football Teams Detailed Report</h1>
+        <h1>Detailed Report</h1>
     </header>
 
     <nav>
