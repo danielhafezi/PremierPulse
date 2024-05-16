@@ -1,13 +1,12 @@
 async function fetchData(url) {
   try {
-    const response = await fetch(url);
+    const response = await fetch(`${url}?_=${new Date().getTime()}`);
     return await response.json();
   } catch (error) {
     console.error('Error fetching data:', error);
     return null;
   }
 }
-
 function getFormString(teamName, fixtures) {
   const recentFixtures = fixtures
     .filter(fixture => (fixture.home_team === teamName || fixture.away_team === teamName) && fixture.home_score !== undefined)
