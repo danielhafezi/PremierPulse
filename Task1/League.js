@@ -87,10 +87,22 @@ function calculateTopScorers(fixtures) {
     });
   });
 
-  return Object.entries(scorersMap)
-    .sort(([, goalsA], [, goalsB]) => goalsB - goalsA)
-    .slice(0, 20)
-    .map(([name, goals], index) => ({ name, goals, rank: index + 1 }));
+  const sortedScorers = Object.entries(scorersMap)
+    .sort(([, goalsA], [, goalsB]) => goalsB - goalsA);
+
+  let rank = 1;
+  let previousGoals = null;
+  const rankedScorers = [];
+
+  sortedScorers.forEach(([name, goals], index) => {
+    if (goals !== previousGoals) {
+      rank = index + 1;
+    }
+    rankedScorers.push({ name, goals, rank });
+    previousGoals = goals;
+  });
+
+  return rankedScorers.slice(0, 20);
 }
 
 function determineTeam(playerName, fixtures) {
