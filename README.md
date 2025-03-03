@@ -1,6 +1,6 @@
 # Final Project: Internet Programming Module
 
-This repository hosts my final project for the Internet Programming module. The project demonstrates a comprehensive approach to designing and implementing web interfaces using HTML, CSS, and JavaScript. I am proud to say that the project was perfected to an A+ standard.
+This repository hosts my final project for the Internet Programming module. The project demonstrates a comprehensive approach to designing and implementing web interfaces using HTML, CSS, and JavaScript.
 
 ![Project Overview](project_overview.png)
 
@@ -40,9 +40,3 @@ This repository hosts my final project for the Internet Programming module. The 
 
 3. **Maintain the Directory Structure:**  
    Ensure all assets (CSS, JavaScript, JSON, and image files) remain in their set directories to ensure the project works as intended.
-
-## Acknowledgements
-
-This project represents the culmination of my work in the Internet Programming module. The project stands as a demonstration of both technical skills and attention to design details. I am proud of this accomplishment and the learning journey behind it.
-
-*Developed by [Your Name] – 2025*
