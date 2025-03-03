@@ -1,4 +1,4 @@
-# Final Project: Internet Programming Module
+# PremierPulse: Premier League Management and Reporting
 
 This repository hosts my final project for the Internet Programming module. The project demonstrates a comprehensive approach to designing and implementing web interfaces using HTML, CSS, and JavaScript.
 
